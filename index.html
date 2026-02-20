@@ -18,44 +18,44 @@
                 overflow-x: hidden;
             }
 
-            /* Navigation */
+            /* ===================== NAVIGATION ===================== */
             nav {
                 position: fixed;
-                top: 30px;
+                top: 20px;
                 left: 50%;
                 transform: translateX(-50%);
                 max-width: 1280px;
-                width: calc(100% - 80px);
+                width: calc(100% - 40px);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 20px 40px;
+                padding: 16px 30px;
                 z-index: 1000;
-                /* background: rgba(245, 230, 211, 0.4); */
-                background: #ffffff !important;
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border-radius: 100px;
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                box-shadow: 0 8px 32px rgba(107, 86, 68, 0.1);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-radius: 60px;
+                border: 1px solid rgba(139, 101, 34, 0.15);
+                box-shadow: 0 8px 32px rgba(107, 86, 68, 0.12);
                 transition: all 0.4s ease;
             }
 
-            nav:hover {
-                background: rgba(245, 230, 211, 0.6);
-                box-shadow: 0 12px 40px rgba(107, 86, 68, 0.15);
+            nav.scrolled {
+                background: rgba(245, 230, 211, 0.97);
+                box-shadow: 0 12px 40px rgba(107, 86, 68, 0.18);
             }
 
             .logo {
-                font-size: 24px;
-                letter-spacing: 3px;
+                font-size: 22px;
+                letter-spacing: 2px;
                 color: #8B6522;
                 font-weight: 400;
+                flex-shrink: 0;
             }
 
             .nav-links {
                 display: flex;
-                gap: 40px;
+                gap: 35px;
                 list-style: none;
                 align-items: center;
             }
@@ -63,11 +63,12 @@
             .nav-links a {
                 color: #8B6522;
                 text-decoration: none;
-                font-size: 14px;
+                font-size: 13px;
                 letter-spacing: 2px;
                 text-transform: uppercase;
                 font-weight: 500;
                 transition: color 0.3s;
+                white-space: nowrap;
             }
 
             .nav-links a:hover {
@@ -76,142 +77,143 @@
 
             .contact-btn {
                 background: #8B6522;
-                color: #e4dee9;
-                padding: 12px 30px;
+                color: #e4dee9 !important;
+                padding: 11px 26px;
                 border-radius: 50px;
                 text-decoration: none;
-                font-size: 14px;
+                font-size: 13px;
                 letter-spacing: 2px;
                 text-transform: uppercase;
                 transition: all 0.3s ease;
                 border: 2px solid #8B6522;
                 font-weight: 500;
+                white-space: nowrap;
+                flex-shrink: 0;
             }
 
             .contact-btn:hover {
                 background: transparent;
-                color: #8B6522;
+                color: #8B6522 !important;
                 transform: translateY(-2px);
             }
 
-            /* Hamburger Menu */
+            /* ===================== HAMBURGER ===================== */
             .hamburger {
                 display: none;
                 flex-direction: column;
                 cursor: pointer;
-                z-index: 1001;
-                width: 30px;
-                height: 24px;
+                z-index: 1100;
+                width: 28px;
+                height: 20px;
                 position: relative;
+                flex-shrink: 0;
             }
 
             .hamburger span {
                 width: 100%;
-                height: 3px;
+                height: 2.5px;
                 background: #8B6522;
                 border-radius: 3px;
-                transition: all 0.3s ease;
+                transition: all 0.35s ease;
                 position: absolute;
+                left: 0;
             }
 
-            .hamburger span:nth-child(1) {
-                top: 0;
-            }
-            .hamburger span:nth-child(2) {
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            .hamburger span:nth-child(3) {
-                bottom: 0;
-            }
+            .hamburger span:nth-child(1) { top: 0; }
+            .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+            .hamburger span:nth-child(3) { bottom: 0; }
 
             .hamburger.active span:nth-child(1) {
                 top: 50%;
                 transform: translateY(-50%) rotate(45deg);
             }
-
             .hamburger.active span:nth-child(2) {
                 opacity: 0;
+                transform: translateY(-50%) scaleX(0);
             }
-
             .hamburger.active span:nth-child(3) {
                 bottom: 50%;
                 transform: translateY(50%) rotate(-45deg);
             }
 
-            /* Mobile Menu */
+            /* ===================== MOBILE MENU ===================== */
             .mobile-menu {
-                display: none;
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100vh;
-                background: rgba(245, 230, 211, 0.98);
+                background: rgba(248, 240, 230, 0.98);
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
-                z-index: 999;
-                padding: 100px 40px 40px;
+                z-index: 1050;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0;
+                padding: 80px 40px 40px;
                 opacity: 0;
                 visibility: hidden;
-                transition: all 0.4s ease;
+                pointer-events: none;
+                transition: opacity 0.4s ease, visibility 0.4s ease;
             }
 
             .mobile-menu.active {
                 opacity: 1;
                 visibility: visible;
+                pointer-events: all;
             }
 
             .mobile-nav-links {
                 display: flex;
                 flex-direction: column;
-                gap: 30px;
+                gap: 8px;
                 list-style: none;
                 margin-bottom: 40px;
+                width: 100%;
+                max-width: 320px;
+                text-align: center;
             }
 
-            .mobile-nav-links a {
+            .mobile-nav-links li a {
                 color: #8B6522;
                 text-decoration: none;
-                font-size: 24px;
-                letter-spacing: 2px;
+                font-size: 28px;
+                letter-spacing: 3px;
                 text-transform: uppercase;
-                font-weight: 500;
-                transition: all 0.3s;
+                font-weight: 400;
+                display: block;
+                padding: 14px 20px;
+                transition: all 0.3s ease;
+                transform: translateY(20px);
                 opacity: 0;
-                transform: translateX(-20px);
+                border-radius: 12px;
             }
 
-            .mobile-menu.active .mobile-nav-links a {
+            .mobile-menu.active .mobile-nav-links li a {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
 
-            .mobile-nav-links a:nth-child(1) {
-                transition-delay: 0.1s;
-            }
-            .mobile-nav-links a:nth-child(2) {
-                transition-delay: 0.2s;
-            }
-            .mobile-nav-links a:nth-child(3) {
-                transition-delay: 0.3s;
-            }
-            .mobile-nav-links a:nth-child(4) {
-                transition-delay: 0.4s;
-            }
+            .mobile-nav-links li:nth-child(1) a { transition-delay: 0.08s; }
+            .mobile-nav-links li:nth-child(2) a { transition-delay: 0.14s; }
+            .mobile-nav-links li:nth-child(3) a { transition-delay: 0.20s; }
+            .mobile-nav-links li:nth-child(4) a { transition-delay: 0.26s; }
 
-            .mobile-nav-links a:hover {
+            .mobile-nav-links li a:hover {
                 color: #4a3d30;
-                transform: translateX(10px);
+                background: rgba(139, 101, 34, 0.08);
+                transform: translateY(0) scale(1.02);
             }
 
             .mobile-contact-btn {
                 background: #8B6522;
                 color: #e4dee9;
-                padding: 18px 40px;
+                padding: 18px 50px;
                 border-radius: 50px;
                 text-decoration: none;
-                font-size: 16px;
+                font-size: 15px;
                 letter-spacing: 2px;
                 text-transform: uppercase;
                 display: inline-block;
@@ -225,21 +227,39 @@
             .mobile-menu.active .mobile-contact-btn {
                 opacity: 1;
                 transform: translateY(0);
-                transition-delay: 0.5s;
+                transition: opacity 0.4s ease 0.34s, transform 0.4s ease 0.34s, background 0.3s, color 0.3s;
             }
 
-            /* Hero Section */
+            .mobile-contact-btn:hover {
+                background: transparent;
+                color: #8B6522;
+            }
+
+            /* Mobile divider */
+            .mobile-divider {
+                width: 60px;
+                height: 1px;
+                background: rgba(139, 101, 34, 0.25);
+                margin: 10px auto 30px;
+                opacity: 0;
+                transition: opacity 0.4s ease 0.3s;
+            }
+            .mobile-menu.active .mobile-divider {
+                opacity: 1;
+            }
+
+            /* ===================== HERO SECTION ===================== */
             .hero-section {
                 position: relative;
                 height: 100vh;
-                /* background: #e4dee9; */
+                min-height: 600px;
                 background: #e4dee9;
                 overflow: hidden;
             }
 
             .hero-content {
                 position: absolute;
-                top: 42%;
+                top: 40%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-align: center;
@@ -265,40 +285,16 @@
             .hero-content p {
                 font-size: 18px;
                 color: #8B6522;
-                margin: 30px 0 40px;
+                margin: 20px 0 0;
                 font-family: 'Lato', sans-serif;
             }
 
-            .book-btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 10px;
-                background: #8B6522;
-                color: #e4dee9;
-                padding: 18px 45px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-size: 14px;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                transition: all 0.4s ease;
-                border: 2px solid #8B6522;
-            }
-
-            .book-btn:hover {
-                background: transparent;
-                color: #8B6522;
-                transform: translateY(-2px);
-                box-shadow: 0 10px 25px rgba(107, 86, 68, 0.2);
-            }
-
-            /* Image Slider */
+            /* ===================== IMAGE SLIDER ===================== */
             .slider-container {
                 position: absolute;
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                /* height: 400px; */
                 overflow: hidden;
             }
 
@@ -315,8 +311,8 @@
 
             .slide {
                 flex-shrink: 0;
-                width: 280px;
-                height: 320px;
+                width: 220px;
+                height: 260px;
                 border-radius: 200px 200px 0 0;
                 overflow: hidden;
                 position: relative;
@@ -329,20 +325,14 @@
                 transition: transform 0.5s ease;
             }
 
-            .slide:hover img {
-                transform: scale(1.08);
-            }
+            .slide:hover img { transform: scale(1.08); }
 
             @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-50%);
-                }
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
             }
 
-            /* About Section */
+            /* ===================== ABOUT SECTION ===================== */
             .about-section {
                 background: #e4dee9;
                 padding: 120px 40px;
@@ -371,9 +361,7 @@
                 object-fit: cover;
             }
 
-            .about-content {
-                color: #D4B896;
-            }
+            .about-content { color: #8B6522; }
 
             .about-label {
                 font-size: 14px;
@@ -389,11 +377,11 @@
                 font-weight: 400;
                 line-height: 1.2;
                 margin-bottom: 30px;
-                color: #e4dee9;
+                color: #4a3d30;
             }
 
             .about-content p {
-                font-size: 18px;
+                font-size: 17px;
                 line-height: 1.8;
                 margin-bottom: 40px;
                 color: #8B6522;
@@ -402,7 +390,7 @@
 
             .about-btn {
                 background: #D4894A;
-                color: #2C2C2C;
+                color: #fff;
                 padding: 16px 40px;
                 border-radius: 50px;
                 text-decoration: none;
@@ -411,14 +399,16 @@
                 text-transform: uppercase;
                 transition: all 0.3s ease;
                 display: inline-block;
+                border: 2px solid #D4894A;
             }
 
             .about-btn:hover {
-                background: #E09A5A;
+                background: transparent;
+                color: #D4894A;
                 transform: translateY(-2px);
             }
 
-            /* Stats Section */
+            /* ===================== STATS SECTION ===================== */
             .stats-section {
                 background: #210528;
                 padding: 80px 40px;
@@ -439,9 +429,7 @@
                 border-right: 1px solid rgba(212, 184, 150, 0.2);
             }
 
-            .stat-item:last-child {
-                border-right: none;
-            }
+            .stat-item:last-child { border-right: none; }
 
             .stat-number {
                 font-size: 72px;
@@ -452,372 +440,464 @@
             }
 
             .stat-label {
-                font-size: 18px;
+                font-size: 17px;
                 color: #D4B896;
                 font-family: 'Lato', sans-serif;
+                line-height: 1.4;
             }
 
-            /* Booking Section */
-            .booking-section {
-                background: #E8DED0;
-                padding: 120px 40px;
+            /* ===================== SPA SERVICES ===================== */
+            .spa-services-section {
+                padding: 80px 5%;
+                background: #210528;
+                overflow: hidden;
+            }
+
+            .spa-services-title {
+                text-align: center;
+                font-size: 2.4rem;
+                color: #f8fafc;
+                margin-bottom: 50px;
+            }
+
+            .spa-services-wrapper { overflow: hidden; }
+
+            .spa-services-track {
+                display: flex;
+                gap: 28px;
+            }
+
+            .spa-service-card {
+                min-width: 280px;
+                max-width: 320px;
+                text-align: center;
+                color: #f1f5f9;
+            }
+
+            .spa-service-img {
+                width: 100%;
+                height: 380px;
+                border-radius: 22px;
+                overflow: hidden;
                 position: relative;
             }
 
-            .booking-container {
-                max-width: 1280px;
-                margin: 0 auto;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 80px;
-                align-items: center;
-            }
-
-            .booking-content h2 {
-                font-size: 48px;
-                font-weight: 400;
-                line-height: 1.3;
-                margin-bottom: 30px;
-                color: #2C2C2C;
-            }
-
-            .booking-label {
-                background: #B39368;
-                color: #FFF;
-                padding: 10px 25px;
-                border-radius: 25px;
-                font-size: 14px;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                display: inline-block;
-                margin-bottom: 25px;
-            }
-
-            .booking-content p {
-                font-size: 18px;
-                line-height: 1.8;
-                color: #2C2C2C;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .booking-form {
-                background: #4A5C4E;
-                padding: 50px;
-                border-radius: 30px;
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
-                transition: all 0.5s ease;
-            }
-
-            .booking-form.expanded {
-                max-height: 1000px;
-                opacity: 1;
-                margin-top: 30px;
-            }
-
-            .booking-toggle {
-                background: #B39368;
-                color: #FFF;
-                padding: 18px 40px;
-                border: none;
-                border-radius: 50px;
-                font-size: 16px;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                font-weight: 600;
-                display: inline-flex;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .booking-toggle:hover {
-                background: #C4A478;
-                transform: translateY(-2px);
-            }
-
-            .booking-toggle svg {
-                width: 20px;
-                height: 20px;
-                transition: transform 0.3s ease;
-            }
-
-            .booking-toggle.active svg {
-                transform: rotate(180deg);
-            }
-
-            .form-group {
-                margin-bottom: 25px;
-            }
-
-            .form-row {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
-
-            .form-group label {
+            .spa-service-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
                 display: block;
-                color: #FFF;
-                font-size: 16px;
-                margin-bottom: 10px;
+                transition: transform 0.6s ease;
+            }
+
+            .spa-service-img::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);
+            }
+
+            .spa-service-name {
+                margin-top: 18px;
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+
+            .spa-service-price {
+                display: block;
+                margin-top: 6px;
+                font-size: 1rem;
+                color: #fbbf24;
+            }
+
+            @media(hover: hover) {
+                .spa-service-card:hover img { transform: scale(1.08); }
+            }
+
+            /* ===================== PRICING SECTION ===================== */
+            .pricing-section {
+                background: #F5E6D3;
+                padding: 100px 40px;
+                position: relative;
+            }
+
+            .pricing-container { max-width: 1200px; margin: 0 auto; }
+
+            .pricing-header {
+                text-align: center;
+                margin-bottom: 70px;
+            }
+
+            .pricing-label {
+                font-size: 14px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                color: #D4894A;
+                margin-bottom: 20px;
+                display: block;
                 font-family: 'Lato', sans-serif;
             }
 
-            .form-group label span {
+            .pricing-header h2 {
+                font-size: 52px;
+                font-weight: 400;
+                line-height: 1.2;
+                color: #2C2C2C;
+                margin-bottom: 15px;
+            }
+
+            .pricing-header p {
+                font-size: 18px;
+                color: #6B5644;
+                font-family: 'Lato', sans-serif;
+            }
+
+            .pricing-table-wrapper {
+                background: #FFF;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 10px 40px rgba(107, 86, 68, 0.08);
+            }
+
+            .pricing-table-header {
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+                background: linear-gradient(135deg, #6B5644 0%, #4a3d30 100%);
+                padding: 25px 30px;
+                color: #FFF;
+                font-family: 'Lato', sans-serif;
+            }
+
+            .pricing-table-header-item {
+                text-align: center;
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
+            .pricing-table-header-item:first-child {
+                text-align: left;
+                padding-left: 20px;
+            }
+
+            .pricing-table-body { padding: 0; }
+
+            .pricing-table-row {
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+                padding: 22px 30px;
+                border-bottom: 1px solid rgba(107, 86, 68, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .pricing-table-row:last-child { border-bottom: none; }
+            .pricing-table-row:hover { background: rgba(212, 137, 74, 0.05); }
+
+            .pricing-service-name {
+                font-size: 18px;
+                color: #2C2C2C;
+                font-weight: 500;
+                padding-left: 20px;
+            }
+
+            .pricing-value {
+                text-align: center;
+                font-size: 17px;
+                color: #6B5644;
+                font-family: 'Lato', sans-serif;
+                font-weight: 600;
+            }
+
+            /* ===================== COURSES SECTION ===================== */
+            .courses-section {
+                position: relative;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 100px 20px;
+                background: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600') center/cover no-repeat;
+            }
+
+            .courses-section::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(rgba(44,44,44,0.85), rgba(44,44,44,0.85));
+            }
+
+            .courses-container {
+                position: relative;
+                z-index: 2;
+                max-width: 1200px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .courses-container h2 {
+                font-size: 42px;
+                color: #e4dee9;
+                margin-bottom: 60px;
+                font-weight: 400;
+            }
+
+            .courses-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
+
+            .course-card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                overflow: hidden;
+                border: 1px solid rgba(212, 137, 74, 0.2);
+                transition: 0.4s ease;
+            }
+
+            .course-card:hover {
+                transform: translateY(-10px);
+                border-color: #D4894A;
+                box-shadow: 0 15px 40px rgba(212, 137, 74, 0.25);
+            }
+
+            .course-card img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+            }
+
+            .course-content { padding: 25px 20px; }
+
+            .course-content h3 {
+                color: #D4894A;
+                font-size: 18px;
+                margin-bottom: 20px;
+                text-transform: capitalize;
+            }
+
+            .course-content a {
+                display: inline-block;
+                padding: 10px 25px;
+                font-size: 13px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border-radius: 50px;
+                text-decoration: none;
+                background: #D4894A;
+                color: #fff;
+                border: 2px solid #D4894A;
+                transition: 0.3s ease;
+            }
+
+            .course-content a:hover {
+                background: transparent;
                 color: #D4894A;
             }
 
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                width: 100%;
-                padding: 15px 20px;
-                border: none;
-                border-radius: 10px;
-                font-size: 15px;
-                font-family: 'Lato', sans-serif;
-                background: #e4dee9;
-                color: #2C2C2C;
+            .view-all-wrapper {
+                margin-top: 60px;
+                text-align: center;
             }
 
-            .form-group textarea {
-                min-height: 120px;
-                resize: vertical;
-            }
-
-            .form-group input::placeholder,
-            .form-group textarea::placeholder {
-                color: #999;
-            }
-
-            .submit-btn {
-                width: 100%;
-                background: #B39368;
-                color: #FFF;
-                padding: 18px;
-                border: none;
-                border-radius: 50px;
-                font-size: 16px;
+            .view-all-btn {
+                display: inline-block;
+                padding: 16px 45px;
+                font-size: 14px;
                 letter-spacing: 2px;
                 text-transform: uppercase;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                font-weight: 600;
+                border-radius: 50px;
+                text-decoration: none;
+                background: #D4894A;
+                color: #fff;
+                border: 2px solid #D4894A;
+                transition: 0.4s ease;
             }
 
-            .submit-btn:hover {
-                background: #C4A478;
-                transform: translateY(-2px);
+            .view-all-btn:hover {
+                background: transparent;
+                color: #D4894A;
+                transform: translateY(-3px);
+                box-shadow: 0 10px 30px rgba(212, 137, 74, 0.3);
             }
 
-            /* Footer */
-            .footer {
-                /* background: #1A1A1A; */
-                background: #e4dee9;
-                padding: 80px 40px 30px;
+            /* ===================== CAREER SECTION ===================== */
+            .career-section {
+                background: #210528;
+                padding: 120px 40px;
                 position: relative;
                 overflow: hidden;
             }
 
-            .footer::before {
+            .career-section::before {
                 content: '';
                 position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(135deg, rgba(212, 137, 74, 0.05) 0%, transparent 50%);
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: linear-gradient(135deg, rgba(212, 137, 74, 0.03) 0%, transparent 50%);
                 pointer-events: none;
             }
 
-            .footer-content {
+            .career-container {
                 max-width: 1280px;
-                margin: 0 auto 60px;
-                display: grid;
-                grid-template-columns: 1.5fr 1fr 1fr 1fr;
-                gap: 60px;
+                margin: 0 auto;
                 position: relative;
                 z-index: 1;
             }
 
-            .footer-logo {
-                display: flex;
+            .career-header {
+                text-align: center;
+                margin-bottom: 80px;
+            }
+
+            .career-badge {
+                display: inline-flex;
                 align-items: center;
-                gap: 15px;
-                font-size: 28px;
-                color: #2C2C2C;
+                gap: 10px;
+                background: rgba(212, 137, 74, 0.15);
+                color: #D4894A;
+                padding: 12px 30px;
+                border-radius: 30px;
+                font-size: 14px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-weight: 600;
+                margin-bottom: 30px;
+                font-family: 'Lato', sans-serif;
+            }
+
+            .career-badge::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                background: #D4894A;
+                border-radius: 50%;
+                animation: pulse-career 2s infinite;
+            }
+
+            @keyframes pulse-career {
+                0%, 100% { opacity: 1; transform: scale(1); }
+                50% { opacity: 0.6; transform: scale(1.3); }
+            }
+
+            .career-header h2 {
+                font-size: 56px;
+                font-weight: 400;
+                line-height: 1.2;
+                color: #e4dee9;
                 margin-bottom: 20px;
             }
 
-            .footer-logo svg {
-                width: 40px;
-                height: 40px;
-                fill: #D4894A;
-            }
+            .career-highlight { color: #D4894A; font-weight: 600; }
 
-            .footer-column h3 {
-                font-size: 20px;
-                color: #8B6522;
-                margin-bottom: 25px;
-                font-weight: 500;
-            }
-
-            .footer-column p,
-            .footer-column a {
-                color: #B39368;
-                font-size: 16px;
-                line-height: 1.8;
+            .career-header p {
+                font-size: 18px;
+                line-height: 1.7;
+                color: #D4B896;
+                max-width: 700px;
+                margin: 0 auto;
                 font-family: 'Lato', sans-serif;
-                text-decoration: none;
-                display: block;
-                margin-bottom: 10px;
-                transition: color 0.3s;
             }
 
-            .footer-column a:hover {
-                color: #D4894A;
+            .career-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: center;
+                margin-bottom: 60px;
             }
 
-            .social-links {
+            .career-image-wrapper {
+                position: relative;
+                border-radius: 30px;
+                overflow: hidden;
+                height: 550px;
+            }
+
+            .career-image-wrapper img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.6s ease;
+            }
+
+            .career-image-wrapper:hover img { transform: scale(1.05); }
+
+            .career-image-overlay {
+                position: absolute;
+                bottom: 0; left: 0; right: 0;
+                background: linear-gradient(to top, rgba(44, 44, 44, 0.9), transparent);
+                padding: 40px 30px;
+                transform: translateY(20px);
+                opacity: 0;
+                transition: all 0.4s ease;
+            }
+
+            .career-image-wrapper:hover .career-image-overlay {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .career-image-overlay h3 { font-size: 24px; color: #e4dee9; margin-bottom: 10px; font-weight: 500; }
+            .career-image-overlay p { font-size: 15px; color: #D4B896; font-family: 'Lato', sans-serif; }
+
+            .career-info { padding: 20px 0; }
+            .career-info h3 { font-size: 42px; font-weight: 400; line-height: 1.3; color: #e4dee9; margin-bottom: 25px; }
+            .career-info p { font-size: 17px; line-height: 1.8; color: #D4B896; margin-bottom: 20px; font-family: 'Lato', sans-serif; }
+
+            .career-features { list-style: none; margin: 40px 0; }
+
+            .career-feature-item {
                 display: flex;
-                gap: 15px;
-                margin-top: 20px;
+                align-items: center;
+                gap: 20px;
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(212, 184, 150, 0.1);
             }
 
-            .social-links a {
-                width: 45px;
-                height: 45px;
-                background: rgba(212, 184, 150, 0.1);
+            .career-feature-item:last-child { border-bottom: none; }
+
+            .career-feature-icon {
+                width: 50px;
+                height: 50px;
+                background: rgba(212, 137, 74, 0.15);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: #D4894A;
-                transition: all 0.3s;
+                font-size: 22px;
+                flex-shrink: 0;
             }
 
-            .social-links a:hover {
+            .career-feature-text { flex: 1; }
+            .career-feature-text h4 { font-size: 20px; color: #e4dee9; margin-bottom: 5px; font-weight: 500; }
+            .career-feature-text p { font-size: 15px; color: #B39368; margin: 0; font-family: 'Lato', sans-serif; }
+
+            .courses-banner-btn {
+                display: inline-block;
                 background: #D4894A;
-                color: #1A1A1A;
+                color: #FFF;
+                padding: 16px 40px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-size: 14px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                transition: all 0.4s ease;
+                border: 2px solid #D4894A;
+                font-weight: 600;
+                margin-top: 10px;
+            }
+
+            .courses-banner-btn:hover {
+                background: transparent;
+                color: #D4894A;
                 transform: translateY(-3px);
             }
 
-            .footer-bottom {
-                border-top: 1px solid rgba(212, 184, 150, 0.2);
-                padding-top: 30px;
-                text-align: center;
-                color: #B39368;
-                font-size: 14px;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .footer-nav {
-                display: flex;
-                gap: 30px;
-                margin-bottom: 20px;
-            }
-
-            .footer-nav a {
-                color: #B39368;
-                text-decoration: none;
-                font-size: 15px;
-                transition: color 0.3s;
-            }
-
-            .footer-nav a:hover {
-                color: #D4894A;
-            }
-
-            /* Responsive */
-            @media(max-width: 968px) {
-                nav {
-                    width: calc(100% - 40px);
-                    padding: 15px 25px;
-                    top: 20px;
-                }
-
-                .nav-links,
-                .contact-btn {
-                    display: none;
-                }
-
-                .hamburger {
-                    display: flex;
-                }
-
-                .about-container,
-                .booking-container {
-                    grid-template-columns: 1fr;
-                    gap: 50px;
-                }
-
-                .about-image {
-                    height: 500px;
-                }
-
-                .stats-container {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-
-                .stat-item {
-                    border-right: none;
-                    border-bottom: 1px solid rgba(212, 184, 150, 0.2);
-                    padding-bottom: 30px;
-                }
-
-                .stat-item:nth-last-child(-n + 2) {
-                    border-bottom: none;
-                }
-
-                .footer-content {
-                    grid-template-columns: 1fr;
-                    gap: 40px;
-                }
-            }
-
-            @media(max-width: 640px) {
-                .hero-content h1 {
-                    font-size: 42px;
-                }
-
-                .hero-content .italic {
-                    font-size: 48px;
-                }
-
-                .about-content h2 {
-                    font-size: 38px;
-                }
-
-                .booking-content h2 {
-                    font-size: 36px;
-                }
-
-                .booking-form {
-                    padding: 30px;
-                }
-
-                .form-row {
-                    grid-template-columns: 1fr;
-                }
-
-                .stat-number {
-                    font-size: 56px;
-                }
-
-                .stats-container {
-                    grid-template-columns: 1fr;
-                }
-
-                .footer-nav {
-                    flex-direction: column;
-                    gap: 15px;
-                }
-            }
-
-            /* Testimonials Section */
+            /* ===================== TESTIMONIALS ===================== */
             .testimonials-section {
                 background: #e4dee9;
                 padding: 120px 40px;
@@ -834,9 +914,7 @@
                 align-items: center;
             }
 
-            .testimonials-header {
-                position: relative;
-            }
+            .testimonials-header { position: relative; }
 
             .testimonials-header h2 {
                 font-size: 56px;
@@ -846,10 +924,7 @@
                 margin-bottom: 20px;
             }
 
-            .testimonials-header .highlight-word {
-                font-weight: 700;
-                color: #2C2C2C;
-            }
+            .testimonials-header .highlight-word { font-weight: 700; color: #2C2C2C; }
 
             .testimonials-header p {
                 font-size: 18px;
@@ -859,10 +934,7 @@
                 font-family: 'Lato', sans-serif;
             }
 
-            .testimonials-nav {
-                display: flex;
-                gap: 15px;
-            }
+            .testimonials-nav { display: flex; gap: 15px; }
 
             .testimonial-nav-btn {
                 width: 55px;
@@ -886,14 +958,7 @@
                 transform: scale(1.05);
             }
 
-            .testimonial-nav-btn:active {
-                transform: scale(0.95);
-            }
-
-            .testimonials-content {
-                position: relative;
-                overflow: hidden;
-            }
+            .testimonials-content { position: relative; overflow: hidden; }
 
             .testimonials-slider {
                 display: flex;
@@ -917,18 +982,14 @@
             }
 
             .testimonial-text {
-                font-size: 24px;
+                font-size: 22px;
                 line-height: 1.6;
                 color: #2C2C2C;
                 margin-bottom: 35px;
                 font-weight: 400;
             }
 
-            .testimonial-author {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-            }
+            .testimonial-author { display: flex; align-items: center; gap: 20px; }
 
             .author-image {
                 width: 60px;
@@ -938,28 +999,12 @@
                 flex-shrink: 0;
             }
 
-            .author-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+            .author-image img { width: 100%; height: 100%; object-fit: cover; }
+            .author-info h4 { font-size: 20px; font-weight: 600; color: #2C2C2C; margin-bottom: 5px; }
+            .author-info p { font-size: 15px; color: #8B6522; font-family: 'Lato', sans-serif; }
 
-            .author-info h4 {
-                font-size: 20px;
-                font-weight: 600;
-                color: #2C2C2C;
-                margin-bottom: 5px;
-            }
-
-            .author-info p {
-                font-size: 15px;
-                color: #8B6522;
-                font-family: 'Lato', sans-serif;
-            }
-
-            /* Gallery Section */
+            /* ===================== GALLERY SECTION ===================== */
             .gallery-section {
-                /* background: #E8DED0; */
                 background: #210528;
                 padding: 120px 40px;
                 position: relative;
@@ -979,10 +1024,7 @@
                 margin-bottom: 15px;
             }
 
-            .gallery-highlight {
-                color: #D4894A;
-                font-weight: 600;
-            }
+            .gallery-highlight { color: #D4894A; font-weight: 600; }
 
             .gallery-header p {
                 font-size: 18px;
@@ -1031,32 +1073,24 @@
                 transition: transform 0.5s ease;
             }
 
-            .gallery-image-item:hover img {
-                transform: scale(1.1);
-            }
+            .gallery-image-item:hover img { transform: scale(1.1); }
 
             .gallery-image-item::after {
                 content: '';
                 position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
+                top: 0; left: 0; right: 0; bottom: 0;
                 background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3));
                 opacity: 0;
                 transition: opacity 0.3s ease;
             }
 
-            .gallery-image-item:hover::after {
-                opacity: 1;
-            }
+            .gallery-image-item:hover::after { opacity: 1; }
 
             .gallery-nav-controls {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                left: 0;
-                right: 0;
+                left: 0; right: 0;
                 display: flex;
                 justify-content: space-between;
                 padding: 0 20px;
@@ -1086,14 +1120,9 @@
                 color: #FFF;
                 border-color: #8B6522;
                 transform: scale(1.1);
-                box-shadow: 0 8px 20px rgba(107, 86, 68, 0.3);
             }
 
-            .gallery-nav-btn:active {
-                transform: scale(0.95);
-            }
-
-            /* Location Section */
+            /* ===================== LOCATION SECTION ===================== */
             .location-section {
                 background: #e4dee9;
                 padding: 120px 40px;
@@ -1144,15 +1173,8 @@
             }
 
             @keyframes pulse-live {
-                0,
-                100% {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-                50% {
-                    opacity: 0.6;
-                    transform: scale(1.2);
-                }
+                0%, 100% { opacity: 1; transform: scale(1); }
+                50% { opacity: 0.6; transform: scale(1.2); }
             }
 
             .location-info h2 {
@@ -1164,7 +1186,7 @@
             }
 
             .location-address {
-                font-size: 20px;
+                font-size: 18px;
                 line-height: 1.7;
                 color: #8B6522;
                 margin-bottom: 40px;
@@ -1191,7 +1213,6 @@
                 background: transparent;
                 color: #B39368;
                 transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(179, 147, 104, 0.3);
             }
 
             .location-map {
@@ -1209,92 +1230,15 @@
                 min-height: 500px;
             }
 
-            /* Responsive */
-            @media(max-width: 968px) {
-                .testimonials-wrapper {
-                    grid-template-columns: 1fr;
-                    gap: 60px;
-                }
-
-                .testimonials-header {
-                    text-align: center;
-                }
-
-                .testimonials-nav {
-                    justify-content: center;
-                }
-
-                .gallery-slide-group {
-                    grid-template-columns: repeat(3, 1fr);
-                }
-
-                .location-container {
-                    grid-template-columns: 1fr;
-                    gap: 50px;
-                }
-
-                .testimonials-header h2 {
-                    font-size: 42px;
-                }
-
-                .gallery-header h2 {
-                    font-size: 42px;
-                }
-            }
-
-            @media(max-width: 640px) {
-                .testimonials-section,
-                .gallery-section,
-                .location-section {
-                    padding: 80px 20px;
-                }
-
-                .testimonial-card {
-                    padding: 35px 25px;
-                }
-
-                .testimonial-text {
-                    font-size: 20px;
-                }
-
-                .testimonials-header h2 {
-                    font-size: 36px;
-                }
-
-                .gallery-header h2 {
-                    font-size: 36px;
-                }
-
-                .gallery-slide-group {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 15px;
-                }
-
-                .location-info {
-                    padding: 40px 30px;
-                }
-
-                .location-info h2 {
-                    font-size: 36px;
-                }
-
-                .gallery-header {
-                    margin-bottom: 50px;
-                }
-            }
-            /* Booking Form Section */
+            /* ===================== BOOKING FORM ===================== */
             .booking-form-section {
-                /* background: linear-gradient(135deg, #A585EF 0%, #6e35e1 100%); */
                 background: #210528;
                 padding: 120px 40px;
                 position: relative;
                 overflow: hidden;
             }
 
-            .booking-form-container {
-                max-width: 1400px;
-                margin: 0 auto;
-            }
+            .booking-form-container { max-width: 1400px; margin: 0 auto; }
 
             .booking-form-badge {
                 display: flex;
@@ -1322,7 +1266,7 @@
             }
 
             .booking-form-heading h2 {
-                font-size: 58px;
+                font-size: 52px;
                 font-weight: 300;
                 line-height: 1.3;
                 color: #FFF;
@@ -1351,21 +1295,16 @@
                 display: block;
             }
 
-            .booking-form-fields-wrapper {
-                padding-top: 20px;
-            }
-
-            .booking-form-group {
-                ;
-                /* margin-bottom: 40px; */
-            }
+            .booking-form-fields-wrapper { padding-top: 20px; }
 
             .booking-form-row {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 60px;
+                gap: 40px;
                 margin-bottom: 40px;
             }
+
+            .booking-form-group { }
 
             .booking-form-label {
                 display: block;
@@ -1400,14 +1339,8 @@
                 border-bottom-color: rgba(255, 255, 255, 0.7);
             }
 
-            .booking-form-input[type="date"] {
-                color-scheme: dark;
-            }
-
-            .booking-form-input[type="date"]::-webkit-calendar-picker-indicator {
-                filter: invert(1);
-                cursor: pointer;
-            }
+            .booking-form-input[type="date"] { color-scheme: dark; }
+            .booking-form-input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
 
             .booking-form-select {
                 width: 100%;
@@ -1422,25 +1355,17 @@
                 outline: none;
                 cursor: pointer;
                 appearance: none;
-                background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255, 255, 255, 0.7)' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255, 255, 255, 0.7)' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
                 background-repeat: no-repeat;
                 background-position: right 5px center;
             }
 
-            .booking-form-select option {
-                background: #8B7262;
-                color: #FFF;
-                padding: 10px;
-            }
-
-            .booking-form-select:focus {
-                border-bottom-color: rgba(255, 255, 255, 0.7);
-            }
+            .booking-form-select option { background: #8B7262; color: #FFF; padding: 10px; }
+            .booking-form-select:focus { border-bottom-color: rgba(255, 255, 255, 0.7); }
 
             .booking-form-textarea {
                 min-height: 100px;
                 resize: vertical;
-                font-family: 'Lato', sans-serif;
             }
 
             .booking-form-submit {
@@ -1465,1327 +1390,393 @@
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             }
 
-            .booking-form-submit:active {
-                transform: translateY(0);
-            }
-
-            /* Responsive */
-            @media(max-width: 968px) {
-                .booking-form-content {
-                    grid-template-columns: 1fr;
-                    gap: 60px;
-                }
-
-                .booking-form-heading h2 {
-                    font-size: 44px;
-                }
-
-                .booking-form-row {
-                    gap: 40px;
-                }
-            }
-
-            @media(max-width: 640px) {
-                .booking-form-section {
-                    padding: 80px 20px;
-                }
-
-                .booking-form-heading {
-                    margin-bottom: 60px;
-                }
-
-                .booking-form-heading h2 {
-                    font-size: 36px;
-                }
-
-                .booking-form-row {
-                    grid-template-columns: 1fr;
-                    gap: 40px;
-                    margin-bottom: 40px;
-                }
-
-                .booking-form-content {
-                    gap: 50px;
-                }
-            }
-
-
-            .spa-services-section {
-                padding: 80px 5%;
-                /* background: linear-gradient(180deg, #0b1220, #020617); */
-                background: #210528;
-                overflow: hidden;
-            }
-
-            .spa-services-title {
-                text-align: center;
-                font-size: 2.4rem;
-                color: #f8fafc;
-                margin-bottom: 50px;
-            }
-
-            /* Wrapper */
-            .spa-services-wrapper {
-                overflow: hidden;
-            }
-
-            /* Track */
-            .spa-services-track {
-                display: flex;
-                gap: 28px;
-            }
-
-            /* Card */
-            .spa-service-card {
-                min-width: 280px;
-                max-width: 320px;
-                text-align: center;
-                color: #f1f5f9;
-            }
-
-            /* Image */
-            .spa-service-img {
-                width: 100%;
-                height: 380px;
-                border-radius: 22px;
-                overflow: hidden;
-                position: relative;
-            }
-
-            .spa-service-img img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-                transition: transform 0.6s ease;
-            }
-
-            /* Soft overlay */
-            .spa-service-img::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);
-            }
-
-            /* Name */
-            .spa-service-name {
-                margin-top: 18px;
-                font-size: 1.2rem;
-                font-weight: 500;
-            }
-
-            /* Price */
-            .spa-service-price {
-                display: block;
-                margin-top: 6px;
-                font-size: 1rem;
-                color: #fbbf24;
-            }
-
-            /* Hover effect */
-            @media(hover: hover) {
-                .spa-service-card:hover img {
-                    transform: scale(1.08);
-                }
-            }
-
-            /* Responsive */
-            @media(max-width: 768px) {
-                .spa-service-img {
-                    height: 300px;
-                }
-
-                .spa-service-card {
-                    min-width: 240px;
-                }
-            }
-            /* Pricing Section */
-            .pricing-section {
+            /* ===================== FOOTER ===================== */
+            .footer {
                 background: #e4dee9;
-                padding: 100px 40px;
-                position: relative;
-            }
-
-            .pricing-container {
-                max-width: 1280px;
-                margin: 0 auto;
-            }
-
-            .pricing-header {
-                text-align: center;
-                margin-bottom: 60px;
-            }
-
-            .pricing-label {
-                font-size: 14px;
-                letter-spacing: 3px;
-                text-transform: uppercase;
-                color: #D4894A;
-                margin-bottom: 20px;
-                display: block;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .pricing-header h2 {
-                font-size: 52px;
-                font-weight: 400;
-                line-height: 1.2;
-                color: #2C2C2C;
-                margin-bottom: 15px;
-            }
-
-            .pricing-header p {
-                font-size: 18px;
-                color: #8B6522;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .pricing-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 30px;
-            }
-
-            .pricing-card {
-                background: #FFF;
-                border-radius: 20px;
-                padding: 40px 30px;
-                box-shadow: 0 10px 40px rgba(107, 86, 68, 0.08);
-                transition: all 0.4s ease;
+                padding: 80px 40px 30px;
                 position: relative;
                 overflow: hidden;
             }
 
-            .pricing-card::before {
+            .footer::before {
                 content: '';
                 position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 4px;
-                background: linear-gradient(90deg, #D4894A 0%, #B39368 100%);
-                transform: scaleX(0);
-                transition: transform 0.4s ease;
-            }
-
-            .pricing-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 15px 50px rgba(107, 86, 68, 0.15);
-            }
-
-            .pricing-card:hover::before {
-                transform: scaleX(1);
-            }
-
-            .pricing-card-header {
-                text-align: center;
-                margin-bottom: 30px;
-                padding-bottom: 25px;
-                border-bottom: 1px solid rgba(107, 86, 68, 0.1);
-            }
-
-            .pricing-duration {
-                font-size: 42px;
-                font-weight: 400;
-                color: #2C2C2C;
-                margin-bottom: 8px;
-            }
-
-            .pricing-subtitle {
-                font-size: 15px;
-                color: #8B6522;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .pricing-list {
-                list-style: none;
-                margin-bottom: 30px;
-            }
-
-            .pricing-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 12px 0;
-                border-bottom: 1px solid rgba(107, 86, 68, 0.05);
-                font-family: 'Lato', sans-serif;
-            }
-
-            .pricing-item:last-child {
-                border-bottom: none;
-            }
-
-            .pricing-service {
-                font-size: 15px;
-                color: #2C2C2C;
-                font-weight: 500;
-            }
-
-            .pricing-price {
-                font-size: 16px;
-                color: #D4894A;
-                font-weight: 700;
-            }
-
-            .pricing-note {
-                text-align: center;
-                margin-top: 50px;
-                padding: 25px;
-                background: rgba(212, 137, 74, 0.08);
-                border-radius: 15px;
-            }
-
-            .pricing-note p {
-                font-size: 15px;
-                color: #8B6522;
-                font-family: 'Lato', sans-serif;
-                line-height: 1.6;
-            }
-
-            /* Mobile Responsive */
-            @media(max-width: 968px) {
-                .pricing-grid {
-                    grid-template-columns: 1fr;
-                    gap: 25px;
-                }
-
-                .pricing-header h2 {
-                    font-size: 42px;
-                }
-
-                .pricing-card {
-                    padding: 35px 25px;
-                }
-            }
-
-            @media(max-width: 640px) {
-                .pricing-section {
-                    padding: 80px 20px;
-                }
-
-                .pricing-header h2 {
-                    font-size: 36px;
-                }
-
-                .pricing-header {
-                    margin-bottom: 40px;
-                }
-
-                .pricing-duration {
-                    font-size: 36px;
-                }
-
-                .pricing-card {
-                    padding: 30px 20px;
-                }
-
-                .pricing-note {
-                    margin-top: 30px;
-                    padding: 20px;
-                }
-            }
-
-            /* Courses Banner Section */
-            .courses-banner-section {
-                position: relative;
-                height: 70vh;
-                min-height: 500px;
-                background: linear-gradient(rgba(44, 44, 44, 0.7), rgba(44, 44, 44, 0.7)), url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600&h=900&fit=crop') center/cover;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-            }
-
-            .courses-banner-content {
-                text-align: center;
-                max-width: 900px;
-                padding: 0 40px;
-                z-index: 10;
-            }
-
-            .courses-banner-label {
-                font-size: 14px;
-                letter-spacing: 3px;
-                text-transform: uppercase;
-                color: #D4894A;
-                margin-bottom: 25px;
-                font-family: 'Lato', sans-serif;
-                font-weight: 600;
-            }
-
-            .courses-banner-content h2 {
-                font-size: 58px;
-                font-weight: 400;
-                line-height: 1.3;
-                color: #e4dee9;
-                margin-bottom: 25px;
-            }
-
-            .courses-banner-content p {
-                font-size: 20px;
-                line-height: 1.7;
-                color: #D4B896;
-                margin-bottom: 40px;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .courses-banner-btn {
-                display: inline-block;
-                background: #D4894A;
-                color: #FFF;
-                padding: 18px 45px;
-                border-radius: 50px;
-                text-decoration: none;
-                font-size: 15px;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                transition: all 0.4s ease;
-                border: 2px solid #D4894A;
-                font-weight: 600;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .courses-banner-btn::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: rgba(255, 255, 255, 0.1);
-                transition: left 0.5s ease;
-            }
-
-            .courses-banner-btn:hover::before {
-                left: 100%;
-            }
-
-            .courses-banner-btn:hover {
-                background: transparent;
-                color: #D4894A;
-                transform: translateY(-3px);
-                box-shadow: 0 10px 30px rgba(212, 137, 74, 0.3);
-            }
-
-            /* Career Section */
-            .career-section {
-                /* background: rgba(137, 43, 226, 0.75); */
-                background: #210528;
-                padding: 120px 40px;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .career-section::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(135deg, rgba(212, 137, 74, 0.03) 0%, transparent 50%);
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: linear-gradient(135deg, rgba(212, 137, 74, 0.05) 0%, transparent 50%);
                 pointer-events: none;
             }
 
-            .career-container {
+            .footer-content {
                 max-width: 1280px;
-                margin: 0 auto;
+                margin: 0 auto 60px;
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr 1fr;
+                gap: 60px;
                 position: relative;
                 z-index: 1;
             }
 
-            .career-header {
-                text-align: center;
-                margin-bottom: 80px;
-            }
-
-            .career-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 10px;
-                background: rgba(212, 137, 74, 0.15);
-                color: #D4894A;
-                padding: 12px 30px;
-                border-radius: 30px;
-                font-size: 14px;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                font-weight: 600;
-                margin-bottom: 30px;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .career-badge::before {
-                content: '';
-                width: 8px;
-                height: 8px;
-                background: #D4894A;
-                border-radius: 50%;
-                animation: pulse-career 2s infinite;
-            }
-
-            @keyframes pulse-career {
-                0,
-                100% {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-                50% {
-                    opacity: 0.6;
-                    transform: scale(1.3);
-                }
-            }
-
-            .career-header h2 {
-                font-size: 56px;
-                font-weight: 400;
-                line-height: 1.2;
-                color: #e4dee9;
-                margin-bottom: 20px;
-            }
-
-            .career-highlight {
-                color: #D4894A;
-                font-weight: 600;
-            }
-
-            .career-header p {
-                font-size: 18px;
-                line-height: 1.7;
-                color: #D4B896;
-                max-width: 700px;
-                margin: 0 auto;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .career-content {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 60px;
-                align-items: center;
-                margin-bottom: 60px;
-            }
-
-            .career-image-wrapper {
-                position: relative;
-                border-radius: 30px;
-                overflow: hidden;
-                height: 550px;
-            }
-
-            .career-image-wrapper img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.6s ease;
-            }
-
-            .career-image-wrapper:hover img {
-                transform: scale(1.05);
-            }
-
-            .career-image-overlay {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: linear-gradient(to top, rgba(44, 44, 44, 0.9), transparent);
-                padding: 40px 30px;
-                transform: translateY(20px);
-                opacity: 0;
-                transition: all 0.4s ease;
-            }
-
-            .career-image-wrapper:hover .career-image-overlay {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            .career-image-overlay h3 {
-                font-size: 24px;
-                color: #e4dee9;
-                margin-bottom: 10px;
-                font-weight: 500;
-            }
-
-            .career-image-overlay p {
-                font-size: 15px;
-                color: #D4B896;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .career-info {
-                padding: 20px 0;
-            }
-
-            .career-info h3 {
-                font-size: 42px;
-                font-weight: 400;
-                line-height: 1.3;
-                color: #e4dee9;
-                margin-bottom: 25px;
-            }
-
-            .career-info p {
-                font-size: 17px;
-                line-height: 1.8;
-                color: #D4B896;
-                margin-bottom: 20px;
-                font-family: 'Lato', sans-serif;
-            }
-
-            .career-features {
-                list-style: none;
-                margin: 40px 0;
-            }
-
-            .career-feature-item {
+            .footer-logo {
                 display: flex;
                 align-items: center;
-                gap: 20px;
-                padding: 20px 0;
-                border-bottom: 1px solid rgba(212, 184, 150, 0.1);
+                gap: 15px;
+                font-size: 28px;
+                color: #2C2C2C;
+                margin-bottom: 20px;
             }
 
-            .career-feature-item:last-child {
-                border-bottom: none;
+            .footer-logo svg { width: 40px; height: 40px; fill: #D4894A; }
+
+            .footer-column h3 { font-size: 20px; color: #8B6522; margin-bottom: 25px; font-weight: 500; }
+
+            .footer-column p,
+            .footer-column a {
+                color: #B39368;
+                font-size: 16px;
+                line-height: 1.8;
+                font-family: 'Lato', sans-serif;
+                text-decoration: none;
+                display: block;
+                margin-bottom: 10px;
+                transition: color 0.3s;
             }
 
-            .career-feature-icon {
-                width: 50px;
-                height: 50px;
-                background: rgba(212, 137, 74, 0.15);
+            .footer-column a:hover { color: #D4894A; }
+
+            .social-links { display: flex; gap: 15px; margin-top: 20px; }
+
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                background: rgba(212, 184, 150, 0.1);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: #D4894A;
-                font-size: 22px;
-                flex-shrink: 0;
+                transition: all 0.3s;
             }
 
-            .career-feature-text {
-                flex: 1;
+            .social-links a:hover {
+                background: #D4894A;
+                color: #1A1A1A;
+                transform: translateY(-3px);
             }
 
-            .career-feature-text h4 {
-                font-size: 20px;
-                color: #e4dee9;
-                margin-bottom: 5px;
-                font-weight: 500;
-            }
-
-            .career-feature-text p {
-                font-size: 15px;
+            .footer-bottom {
+                border-top: 1px solid rgba(212, 184, 150, 0.2);
+                padding-top: 30px;
+                text-align: center;
                 color: #B39368;
-                margin: 0;
+                font-size: 14px;
                 font-family: 'Lato', sans-serif;
             }
 
-            .career-cta {
-                text-align: center;
-                margin-top: 60px;
+            .footer-nav {
+                display: flex;
+                gap: 30px;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
             }
 
-            .career-btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 12px;
-                background: #D4894A;
-                color: #FFF;
-                padding: 18px 50px;
-                border-radius: 50px;
+            .footer-nav a {
+                color: #B39368;
                 text-decoration: none;
                 font-size: 15px;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                transition: all 0.4s ease;
-                border: 2px solid #D4894A;
-                font-weight: 600;
-                position: relative;
-                overflow: hidden;
+                transition: color 0.3s;
             }
 
-            .career-btn::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 0;
-                height: 0;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.1);
-                transform: translate(-50%, -50%);
-                transition: width 0.6s ease, height 0.6s ease;
+            .footer-nav a:hover { color: #D4894A; }
+
+            /* =====================================================
+               RESPONSIVE - TABLET (max 1024px)
+               ===================================================== */
+            @media(max-width: 1024px) {
+                .nav-links { gap: 25px; }
+                .nav-links a { font-size: 12px; }
+                .contact-btn { padding: 10px 20px; font-size: 12px; }
+
+                .courses-grid { grid-template-columns: repeat(2, 1fr); }
             }
 
-            .career-btn:hover::before {
-                width: 300px;
-                height: 300px;
-            }
-
-            .career-btn:hover {
-                background: transparent;
-                color: #D4894A;
-                transform: translateY(-3px);
-                box-shadow: 0 12px 35px rgba(212, 137, 74, 0.3);
-            }
-
-            .career-btn svg {
-                width: 20px;
-                height: 20px;
-                transition: transform 0.3s ease;
-            }
-
-            .career-btn:hover svg {
-                transform: translateX(5px);
-            }
-
-            /* Responsive */
+            /* =====================================================
+               RESPONSIVE - TABLET (max 968px)
+               ===================================================== */
             @media(max-width: 968px) {
-                .courses-banner-section {
-                    height: 60vh;
-                    min-height: 450px;
+                /* Nav */
+                nav {
+                    width: calc(100% - 32px);
+                    padding: 14px 20px;
+                    top: 16px;
                 }
 
-                .courses-banner-content h2 {
-                    font-size: 42px;
+                .nav-links,
+                .contact-btn {
+                    display: none;
                 }
 
-                .courses-banner-content p {
-                    font-size: 18px;
+                .hamburger { display: flex; }
+
+                /* About */
+                .about-container {
+                    grid-template-columns: 1fr;
+                    gap: 50px;
                 }
 
-                .career-section {
-                    padding: 80px 30px;
+                .about-image { height: 400px; }
+
+                .about-content h2 { font-size: 42px; }
+
+                /* Stats */
+                .stats-container { grid-template-columns: repeat(2, 1fr); }
+
+                .stat-item {
+                    border-right: none;
+                    border-bottom: 1px solid rgba(212, 184, 150, 0.2);
+                    padding-bottom: 30px;
                 }
 
-                .career-header {
-                    margin-bottom: 60px;
+                .stat-item:nth-last-child(-n + 2) { border-bottom: none; }
+
+                /* Testimonials */
+                .testimonials-wrapper {
+                    grid-template-columns: 1fr;
+                    gap: 50px;
                 }
 
-                .career-header h2 {
-                    font-size: 42px;
+                .testimonials-header { text-align: center; }
+                .testimonials-nav { justify-content: center; }
+                .testimonials-header h2 { font-size: 42px; }
+
+                /* Gallery */
+                .gallery-slide-group { grid-template-columns: repeat(3, 1fr); }
+                .gallery-header h2 { font-size: 42px; }
+
+                /* Location */
+                .location-container {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
                 }
 
+                /* Booking form */
+                .booking-form-content {
+                    grid-template-columns: 1fr;
+                    gap: 50px;
+                }
+
+                .booking-form-image {
+                    height: 380px;
+                    border-radius: 24px;
+                }
+
+                .booking-form-heading h2 { font-size: 40px; }
+
+                /* Career */
                 .career-content {
                     grid-template-columns: 1fr;
                     gap: 50px;
                 }
 
-                .career-image-wrapper {
-                    height: 450px;
-                }
+                .career-image-wrapper { height: 400px; }
+                .career-header h2 { font-size: 42px; }
+                .career-info h3 { font-size: 34px; }
 
-                .career-info h3 {
-                    font-size: 36px;
+                /* Footer */
+                .footer-content {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 40px;
                 }
             }
 
+            /* =====================================================
+               RESPONSIVE - MOBILE (max 640px)
+               ===================================================== */
             @media(max-width: 640px) {
-                .courses-banner-section {
-                    height: 65vh;
-                    min-height: 400px;
+                /* Nav - very tight */
+                nav {
+                    width: calc(100% - 24px);
+                    padding: 12px 18px;
+                    top: 12px;
+                    border-radius: 40px;
                 }
 
-                .courses-banner-content {
-                    padding: 0 20px;
+                .logo { font-size: 18px; letter-spacing: 1px; }
+
+                /* Hero */
+                .hero-section { min-height: 100svh; }
+
+                .hero-content h1 {
+                    font-size: 38px;
+                    line-height: 1.15;
                 }
 
-                .courses-banner-content h2 {
-                    font-size: 36px;
+                .hero-content .italic { font-size: 44px; }
+                .hero-content p { font-size: 15px; margin-top: 14px; }
+
+                .slide { width: 150px; height: 185px; }
+
+                /* About */
+                .about-section { padding: 80px 20px; }
+                .about-image { height: 300px; border-radius: 24px; }
+                .about-content h2 { font-size: 34px; }
+
+                /* Stats */
+                .stats-section { padding: 60px 20px; }
+                .stats-container { grid-template-columns: 1fr 1fr; gap: 20px; }
+                .stat-item { padding: 0 10px 20px; }
+                .stat-item:nth-last-child(-n + 2) { border-bottom: none; }
+                .stat-number { font-size: 52px; }
+                .stat-label { font-size: 14px; }
+
+                /* Services */
+                .spa-services-section { padding: 60px 4%; }
+                .spa-services-title { font-size: 1.8rem; margin-bottom: 35px; }
+                .spa-service-card { min-width: 230px; }
+                .spa-service-img { height: 300px; }
+
+                /* Pricing */
+                .pricing-section { padding: 70px 16px; }
+                .pricing-header h2 { font-size: 34px; }
+                .pricing-header { margin-bottom: 40px; }
+
+                .pricing-table-header { display: none; }
+
+                .pricing-table-row {
+                    grid-template-columns: 1fr;
+                    padding: 20px 16px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    border-bottom: 2px solid rgba(107, 86, 68, 0.08);
                 }
 
-                .courses-banner-content p {
-                    font-size: 16px;
-                    margin-bottom: 30px;
+                .pricing-service-name {
+                    font-size: 17px;
+                    padding-left: 0;
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid rgba(107, 86, 68, 0.1);
+                    color: #2C2C2C;
                 }
 
-                .courses-banner-btn {
-                    padding: 16px 35px;
-                    font-size: 14px;
+                .pricing-value {
+                    text-align: left;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 15px;
+                    padding: 2px 0;
                 }
 
-                .career-section {
-                    padding: 80px 20px;
+                .pricing-value::before {
+                    content: attr(data-label);
+                    font-weight: 500;
+                    color: #6B5644;
+                    font-size: 13px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
                 }
 
-                .career-header {
-                    margin-bottom: 50px;
-                }
+                /* Courses */
+                .courses-section { padding: 80px 16px; }
+                .courses-container h2 { font-size: 28px; margin-bottom: 40px; }
+                .courses-grid { grid-template-columns: 1fr; gap: 20px; }
+                .course-card img { height: 200px; }
+                .course-content { padding: 20px 16px; }
+                .course-content h3 { font-size: 16px; }
 
-                .career-header h2 {
-                    font-size: 36px;
-                }
+                /* Career */
+                .career-section { padding: 70px 20px; }
+                .career-header h2 { font-size: 34px; }
+                .career-header p { font-size: 15px; }
+                .career-image-wrapper { height: 300px; border-radius: 20px; }
+                .career-info h3 { font-size: 28px; }
 
-                .career-header p {
-                    font-size: 16px;
-                }
+                /* Testimonials */
+                .testimonials-section { padding: 70px 20px; }
+                .testimonials-header h2 { font-size: 34px; }
+                .testimonial-card { padding: 28px 22px; }
+                .testimonial-text { font-size: 18px; }
 
-                .career-image-wrapper {
-                    height: 380px;
-                }
-
-                .career-info h3 {
-                    font-size: 32px;
-                }
-
-                .career-info p {
-                    font-size: 16px;
-                }
-
-                .career-feature-icon {
-                    width: 45px;
-                    height: 45px;
-                    font-size: 20px;
-                }
-
-                .career-feature-text h4 {
-                    font-size: 18px;
-                }
-
-                .career-feature-text p {
-                    font-size: 14px;
-                }
-
-                .career-cta {
-                    margin-top: 50px;
-                }
-
-                .career-btn {
-                    padding: 16px 40px;
-                    font-size: 14px;
-                }
-            }
-            /* Add this to your existing CSS */
-
-            @media(max-width: 480px) {
+                /* Gallery */
+                .gallery-section { padding: 60px 16px; }
+                .gallery-header { margin-bottom: 40px; }
+                .gallery-header h2 { font-size: 30px; }
+                .gallery-header p { font-size: 14px; }
                 .gallery-slide-group {
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 10px !important;
-                    display: grid !important;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 12px;
+                }
+                .gallery-nav-btn { width: 44px; height: 44px; font-size: 16px; }
+
+                /* Location */
+                .location-section { padding: 70px 20px; }
+                .location-info { padding: 36px 24px; border-radius: 20px; }
+                .location-info h2 { font-size: 34px; }
+                .location-address { font-size: 15px; }
+                .location-map { min-height: 320px; border-radius: 20px; }
+                .location-map iframe { min-height: 320px; }
+
+                /* Booking form */
+                .booking-form-section { padding: 70px 20px; }
+                .booking-form-heading { margin-bottom: 50px; }
+                .booking-form-heading h2 { font-size: 30px; }
+                .booking-form-image { display: none; }
+                .booking-form-content { grid-template-columns: 1fr; gap: 0; }
+                .booking-form-fields-wrapper { padding-top: 0; }
+
+                .booking-form-row {
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                    margin-bottom: 32px;
                 }
 
-                .gallery-image-item {
-                    aspect-ratio: 1 / 1 !important;
-                    width: 100% !important;
-                    height: 0 !important;
-                    padding-bottom: 100% !important;
-                    position: relative !important;
-                    border-radius: 10px !important;
-                    overflow: hidden !important;
+                .booking-form-submit {
+                    width: 100%;
+                    text-align: center;
+                    padding: 18px;
                 }
 
-                .gallery-image-item img {
-                    position: absolute !important;
-                    top: 0 !important;
-                    left: 0 !important;
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
-                    object-position: center !important;
-                }
-            }
-            /* Mobile Gallery - Show Only 1 Image at a Time */
-
-            @media(max-width: 480px) {
-                .gallery-slide-group {
-                    grid-template-columns: 1fr !important;
-                    gap: 0 !important;
-                    display: grid !important;
-                    padding: 0 20px !important;
+                /* Footer */
+                .footer { padding: 60px 20px 24px; }
+                .footer-content {
+                    grid-template-columns: 1fr;
+                    gap: 36px;
                 }
 
-                .gallery-image-item {
-                    aspect-ratio: 1 / 1 !important;
-                    width: 100% !important;
-                    height: 0 !important;
-                    padding-bottom: 100% !important;
-                    position: relative !important;
-                    border-radius: 20px !important;
-                    overflow: hidden !important;
-                }
-
-                .gallery-image-item img {
-                    position: absolute !important;
-                    top: 0 !important;
-                    left: 0 !important;
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
-                    object-position: center !important;
-                }
-
-                .gallery-slides-wrapper {
-                    border-radius: 20px !important;
-                }
-
-                .gallery-nav-controls {
-                    padding: 0 10px !important;
-                }
-
-                .gallery-nav-btn {
-                    width: 50px !important;
-                    height: 50px !important;
-                    font-size: 18px !important;
+                .footer-nav {
+                    gap: 16px;
+                    justify-content: center;
                 }
             }
 
-            /* Tablet View - Show 2 Images */
-            @media(min-width: 481px) and(max-width: 768px) {
-                .gallery-slide-group {
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 15px !important;
-                }
-
-                .gallery-image-item {
-                    aspect-ratio: 1 / 1 !important;
-                    width: 100% !important;
-                    height: 0 !important;
-                    padding-bottom: 100% !important;
-                    position: relative !important;
-                    border-radius: 15px !important;
-                    overflow: hidden !important;
-                }
-
-                .gallery-image-item img {
-                    position: absolute !important;
-                    top: 0 !important;
-                    left: 0 !important;
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
-                    object-position: center !important;
-                }
+            /* =====================================================
+               RESPONSIVE - VERY SMALL (max 380px)
+               ===================================================== */
+            @media(max-width: 380px) {
+                .hero-content h1 { font-size: 32px; }
+                .hero-content .italic { font-size: 36px; }
+                nav { padding: 10px 14px; }
+                .logo { font-size: 16px; }
+                .stats-container { grid-template-columns: 1fr; }
+                .stat-item { border-bottom: 1px solid rgba(212, 184, 150, 0.2) !important; border-right: none !important; padding-bottom: 20px; }
+                .stat-item:last-child { border-bottom: none !important; }
             }
-
-            /* Mobile Gallery Fix - Using Flexbox */
-
-            @media(max-width: 480px) {
-                .gallery-slide-group {
-                    display: flex !important;
-                    flex-direction: row !important;
-                    gap: 15px !important;
-                    justify-content: center !important;
-                    align-items: center !important;
-                    padding: 0 !important;
-                }
-
-                .gallery-image-item {
-                    min-width: 100% !important;
-                    max-width: 100% !important;
-                    flex-shrink: 0 !important;
-                    aspect-ratio: 1 / 1 !important;
-                    width: 100% !important;
-                    height: auto !important;
-                    border-radius: 20px !important;
-                    overflow: hidden !important;
-                    position: relative !important;
-                }
-
-                .gallery-image-item img {
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
-                    object-position: center !important;
-                    display: block !important;
-                    position: absolute !important;
-                    top: 0 !important;
-                    left: 0 !important;
-                }
-
-                /* Ensure slider container behaves properly */
-                .gallery-slides-wrapper {
-                    overflow: hidden !important;
-                    border-radius: 20px !important;
-                    width: 100% !important;
-                }
-
-                .gallery-slides {
-                    display: flex !important;
-                    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
-                    width: 100% !important;
-                }
-
-                .gallery-nav-controls {
-                    padding: 0 10px !important;
-                }
-
-                .gallery-nav-btn {
-                    width: 50px !important;
-                    height: 50px !important;
-                    font-size: 18px !important;
-                }
-
-                .gallery-section {
-                    padding: 50px 15px !important;
-                }
-
-                .gallery-header h2 {
-                    font-size: 26px !important;
-                }
-
-                .gallery-header p {
-                    font-size: 14px !important;
-                }
-            }
-
-
-
-            /* Pricing Section */
-        .pricing-section {
-            background: #F5E6D3;
-            padding: 100px 40px;
-            position: relative;
-        }
-
-        .pricing-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .pricing-label {
-            font-size: 14px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #D4894A;
-            margin-bottom: 20px;
-            display: block;
-            font-family: 'Lato', sans-serif;
-        }
-
-        .pricing-header h2 {
-            font-size: 52px;
-            font-weight: 400;
-            line-height: 1.2;
-            color: #2C2C2C;
-            margin-bottom: 15px;
-        }
-
-        .pricing-header p {
-            font-size: 18px;
-            color: #6B5644;
-            font-family: 'Lato', sans-serif;
-        }
-
-        .pricing-table-wrapper {
-            background: #FFF;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(107, 86, 68, 0.08);
-        }
-
-        .pricing-table-header {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            background: linear-gradient(135deg, #6B5644 0%, #4a3d30 100%);
-            padding: 25px 30px;
-            color: #FFF;
-            font-family: 'Lato', sans-serif;
-        }
-
-        .pricing-table-header-item {
-            text-align: center;
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .pricing-table-header-item:first-child {
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .pricing-table-body {
-            padding: 0;
-        }
-
-        .pricing-table-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            padding: 22px 30px;
-            border-bottom: 1px solid rgba(107, 86, 68, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .pricing-table-row:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-table-row:hover {
-            background: rgba(212, 137, 74, 0.05);
-        }
-
-        .pricing-service-name {
-            font-size: 18px;
-            color: #2C2C2C;
-            font-weight: 500;
-            padding-left: 20px;
-        }
-
-        .pricing-value {
-            text-align: center;
-            font-size: 17px;
-            color: #6B5644;
-            font-family: 'Lato', sans-serif;
-            font-weight: 600;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 968px) {
-            .pricing-header h2 {
-                font-size: 42px;
-            }
-
-            .pricing-table-header,
-            .pricing-table-row {
-                grid-template-columns: 1.5fr 1fr 1fr 1fr;
-                padding: 20px 15px;
-            }
-
-            .pricing-service-name {
-                font-size: 16px;
-                padding-left: 10px;
-            }
-
-            .pricing-value {
-                font-size: 15px;
-            }
-
-            .pricing-table-header-item {
-                font-size: 13px;
-            }
-
-            .pricing-table-header-item:first-child {
-                padding-left: 10px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .pricing-section {
-                padding: 80px 20px;
-            }
-
-            .pricing-header h2 {
-                font-size: 36px;
-            }
-
-            .pricing-header {
-                margin-bottom: 50px;
-            }
-
-            .pricing-table-wrapper {
-                border-radius: 15px;
-            }
-
-            .pricing-table-header,
-            .pricing-table-row {
-                grid-template-columns: 1fr;
-                padding: 0;
-                gap: 0;
-            }
-
-            .pricing-table-header {
-                display: none;
-            }
-
-            .pricing-table-row {
-                padding: 25px 20px;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .pricing-service-name {
-                font-size: 18px;
-                padding-left: 0;
-                margin-bottom: 12px;
-                padding-bottom: 12px;
-                border-bottom: 1px solid rgba(107, 86, 68, 0.1);
-            }
-
-            .pricing-value {
-                text-align: left;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .pricing-value::before {
-                content: attr(data-label);
-                font-weight: 500;
-                color: #6B5644;
-            }
-        }
-
-/* Section Background */
-.courses-section{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:100px 20px;
-    background:url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1600') center/cover no-repeat;
-}
-
-.courses-section::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(rgba(44,44,44,0.85), rgba(44,44,44,0.85));
-}
-
-/* Container */
-.courses-container{
-    position:relative;
-    z-index:2;
-    max-width:1200px;
-    width:100%;
-    text-align:center;
-}
-
-/* Header */
-.courses-container h2{
-    font-size:42px;
-    color:#e4dee9;
-    margin-bottom:60px;
-    font-weight:400;
-}
-
-/* Grid */
-.courses-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
-}
-
-/* Card */
-.course-card{
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-    border-radius:15px;
-    overflow:hidden;
-    border:1px solid rgba(212,137,74,0.2);
-    transition:0.4s ease;
-}
-
-.course-card:hover{
-    transform:translateY(-10px);
-    border-color:#D4894A;
-    box-shadow:0 15px 40px rgba(212,137,74,0.25);
-}
-
-/* Image */
-.course-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-/* Content */
-.course-content{
-    padding:25px 20px;
-}
-
-.course-content h3{
-    color:#D4894A;
-    font-size:18px;
-    margin-bottom:20px;
-    text-transform:capitalize;
-}
-
-/* Button */
-.course-content a{
-    display:inline-block;
-    padding:10px 25px;
-    font-size:13px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    border-radius:50px;
-    text-decoration:none;
-    background:#D4894A;
-    color:#fff;
-    border:2px solid #D4894A;
-    transition:0.3s ease;
-}
-
-.course-content a:hover{
-    background:transparent;
-    color:#D4894A;
-}
-
-/* Tablet */
-@media(max-width:992px){
-    .courses-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-/* Mobile */
-@media(max-width:600px){
-    .courses-container h2{
-        font-size:30px;
-        margin-bottom:40px;
-    }
-
-    .courses-grid{
-        grid-template-columns:1fr;
-    }
-}
-/* View All Button */
-.view-all-wrapper{
-    margin-top:60px;
-    text-align:center;
-}
-
-.view-all-btn{
-    display:inline-block;
-    padding:16px 45px;
-    font-size:14px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    border-radius:50px;
-    text-decoration:none;
-    background:#D4894A;
-    color:#fff;
-    border:2px solid #D4894A;
-    transition:0.4s ease;
-}
-
-.view-all-btn:hover{
-    background:transparent;
-    color:#D4894A;
-    transform:translateY(-3px);
-    box-shadow:0 10px 30px rgba(212,137,74,0.3);
-}
-
-            
         </style>
     </head>
     <body>
         <!-- Navigation -->
-        <nav>
+        <nav id="mainNav">
             <div class="logo">Star and Sky</div>
-            <div class="nav-links">
-                <a href="#home">HOME</a>
-                <a href="#about">ABOUT</a>
-                <a href="#services">SERVICES</a>
-                <a href="#booking">BOOKING</a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#booking">BOOKING</a></li>
+            </ul>
             <a href="#contact" class="contact-btn">CONTACT</a>
-            <div class="hamburger">
+            <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -2793,17 +1784,16 @@
         </nav>
 
         <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="mobile-nav-links">
-                <a href="#home">HOME</a>
-                <a href="#about">ABOUT</a>
-                <a href="#services">SERVICES</a>
-                <a href="#booking">BOOKING</a>
-            </div>
-            <a href="#contact" class="mobile-contact-btn">CONTACT</a>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#booking">Booking</a></li>
+            </ul>
+            <div class="mobile-divider"></div>
+            <a href="#contact" class="mobile-contact-btn">Contact Us</a>
         </div>
-
-
 
         <!-- Hero Section -->
         <section id="home" class="hero-section">
@@ -2813,51 +1803,22 @@
                     <span class="italic">Deserves This</span>
                 </h1>
                 <p>Book your massage today and feel the change.</p>
-                <!-- <a href="#booking" class="book-btn">
-                                    BOOK NOW
-                                    <span>→</span>
-                                </a> -->
             </div>
 
-            <!-- Image Slider -->
             <div class="slider-container">
                 <div class="slider-track">
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=600&fit=crop" alt="Massage therapy">
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=600&fit=crop" alt="Herbal compress massage">
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=600&fit=crop" alt="Hot stone massage">
-                    </div>
-                    <div class="slide">
-                        <img src="https://media.istockphoto.com/id/1182967465/photo/happy-couple-enjoying-a-day-at-spa-while-having-back-massage.webp?a=1&b=1&s=612x612&w=0&k=20&c=X0r_vXcUlTDWcjbE0UjaIXRzHRhMpX1Ugff0XYQAGLQ=" alt="Facial treatment">
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=600&fit=crop" alt="Spa ambiance">
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=600&fit=crop" alt="Relaxation therapy">
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=600&fit=crop" alt="Massage therapy">
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=600&fit=crop" alt="Herbal compress massage">
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=600&fit=crop" alt="Hot stone massage">
-                    </div>
-                    <div class="slide">
-                        <img src="https://media.istockphoto.com/id/465840720/photo/back-massage-at-the-spa.webp?a=1&b=1&s=612x612&w=0&k=20&c=aCP-K2pASBNm6ZaH1mtRlnIzMaawRgGcP6ur2npmdko=" alt="Facial treatment">
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=600&fit=crop" alt="Spa ambiance">
-                    </div>
-                    <div class="slide">
-                        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=600&fit=crop" alt="Relaxation therapy">
-                    </div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=600&fit=crop" alt="Massage therapy"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=600&fit=crop" alt="Herbal compress massage"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=600&fit=crop" alt="Hot stone massage"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/1182967465/photo/happy-couple-enjoying-a-day-at-spa-while-having-back-massage.webp?a=1&b=1&s=612x612&w=0&k=20&c=X0r_vXcUlTDWcjbE0UjaIXRzHRhMpX1Ugff0XYQAGLQ=" alt="Facial treatment"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=600&fit=crop" alt="Spa ambiance"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=600&fit=crop" alt="Relaxation therapy"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=600&fit=crop" alt="Massage therapy"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=600&fit=crop" alt="Herbal compress massage"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=600&fit=crop" alt="Hot stone massage"></div>
+                    <div class="slide"><img src="https://media.istockphoto.com/id/465840720/photo/back-massage-at-the-spa.webp?a=1&b=1&s=612x612&w=0&k=20&c=aCP-K2pASBNm6ZaH1mtRlnIzMaawRgGcP6ur2npmdko=" alt="Facial treatment"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=600&fit=crop" alt="Spa ambiance"></div>
+                    <div class="slide"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=600&fit=crop" alt="Relaxation therapy"></div>
                 </div>
             </div>
         </section>
@@ -2892,7 +1853,6 @@
                 </div>
                 <div class="about-content">
                     <span class="about-label">About Star and Sky Spa</span>
-                    <!-- <h2>Empowering You Through Mindful Wellness</h2> -->
                     <p>Star and Sky Spa is a trusted and professional spa located in Katpadi, Vellore, offering high-quality wellness and relaxation therapies. With over 10 years of experience, we are known as one of the most reliable and professional spas in Vellore, providing services delivered by well-trained and certified therapists in a clean, calm, and welcoming environment. Our commitment to hygiene, customer care, and personalized treatments has earned us the trust of clients across Katpadi and the entire Vellore region, making Star and Sky Spa a preferred destination for premium spa experiences.</p>
                     <a href="#" class="about-btn">More About Us</a>
                 </div>
@@ -2900,60 +1860,40 @@
         </section>
 
         <!-- Spa Services Slider Section -->
-        <section class="spa-services-section">
+        <section id="services" class="spa-services-section">
             <h2 class="spa-services-title">Our Signature Spa Services</h2>
-
             <div class="spa-services-wrapper">
                 <div class="spa-services-track">
-
                     <div class="spa-service-card">
-                        <div class="spa-service-img">
-                            <img src="https://images.pexels.com/photos/9335978/pexels-photo-9335978.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Aromatherapy Massage">
-                        </div>
+                        <div class="spa-service-img"><img src="https://images.pexels.com/photos/9335978/pexels-photo-9335978.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Dry Massage"></div>
                         <h3 class="spa-service-name">Dry Massage</h3>
                         <span class="spa-service-price">Starting from ₹1,400</span>
                     </div>
-
                     <div class="spa-service-card">
-                        <div class="spa-service-img">
-                            <img src="https://images.pexels.com/photos/5659021/pexels-photo-5659021.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Swedish Massage">
-                        </div>
+                        <div class="spa-service-img"><img src="https://images.pexels.com/photos/5659021/pexels-photo-5659021.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Oil Massage"></div>
                         <h3 class="spa-service-name">Oil Massage</h3>
                         <span class="spa-service-price">Starting from ₹1,500</span>
                     </div>
-
                     <div class="spa-service-card">
-                        <div class="spa-service-img">
-                            <img src="https://images.pexels.com/photos/3865528/pexels-photo-3865528.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Deep Tissue Massage">
-                        </div>
+                        <div class="spa-service-img"><img src="https://images.pexels.com/photos/3865528/pexels-photo-3865528.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Gel Massage"></div>
                         <h3 class="spa-service-name">Gel Massage</h3>
                         <span class="spa-service-price">Starting from ₹1,500</span>
                     </div>
-
                     <div class="spa-service-card">
-                        <div class="spa-service-img">
-                            <img src="https://images.pexels.com/photos/3865491/pexels-photo-3865491.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Body Polishing">
-                        </div>
+                        <div class="spa-service-img"><img src="https://images.pexels.com/photos/3865491/pexels-photo-3865491.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Cream Massage"></div>
                         <h3 class="spa-service-name">Cream Massage</h3>
                         <span class="spa-service-price">Starting from ₹1,500</span>
                     </div>
-
                     <div class="spa-service-card">
-                        <div class="spa-service-img">
-                            <img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Body Polishing">
-                        </div>
+                        <div class="spa-service-img"><img src="https://images.pexels.com/photos/3997983/pexels-photo-3997983.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Scrub Massage"></div>
                         <h3 class="spa-service-name">Scrub Massage</h3>
                         <span class="spa-service-price">Starting from ₹1,500</span>
                     </div>
-
                     <div class="spa-service-card">
-                        <div class="spa-service-img">
-                            <img src="https://images.pexels.com/photos/6560267/pexels-photo-6560267.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Body Polishing">
-                        </div>
+                        <div class="spa-service-img"><img src="https://images.pexels.com/photos/6560267/pexels-photo-6560267.jpeg?w=1200&auto=format&fit=crop&q=80" alt="Butterfly Massage"></div>
                         <h3 class="spa-service-name">Butterfly Massage</h3>
                         <span class="spa-service-price">Starting from ₹1,500</span>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -2966,7 +1906,6 @@
                     <h2>Massage Pricing</h2>
                     <p>Choose from our range of relaxing and rejuvenating massage therapies</p>
                 </div>
-    
                 <div class="pricing-table-wrapper">
                     <div class="pricing-table-header">
                         <div class="pricing-table-header-item">Service</div>
@@ -2974,7 +1913,6 @@
                         <div class="pricing-table-header-item">60 Min</div>
                         <div class="pricing-table-header-item">90 Min</div>
                     </div>
-    
                     <div class="pricing-table-body">
                         <div class="pricing-table-row">
                             <div class="pricing-service-name">Dry Massage</div>
@@ -2982,75 +1920,64 @@
                             <div class="pricing-value" data-label="60 Min">₹2,500</div>
                             <div class="pricing-value" data-label="90 Min">₹3,000</div>
                         </div>
-    
                         <div class="pricing-table-row">
                             <div class="pricing-service-name">Oil Massage</div>
                             <div class="pricing-value" data-label="45 Min">₹1,500</div>
                             <div class="pricing-value" data-label="60 Min">₹3,000</div>
                             <div class="pricing-value" data-label="90 Min">₹3,500</div>
                         </div>
-    
                         <div class="pricing-table-row">
                             <div class="pricing-service-name">Gel Massage</div>
                             <div class="pricing-value" data-label="45 Min">₹1,500</div>
                             <div class="pricing-value" data-label="60 Min">₹3,000</div>
                             <div class="pricing-value" data-label="90 Min">₹3,500</div>
                         </div>
-    
                         <div class="pricing-table-row">
                             <div class="pricing-service-name">Cream Massage</div>
                             <div class="pricing-value" data-label="45 Min">₹1,500</div>
                             <div class="pricing-value" data-label="60 Min">₹3,000</div>
                             <div class="pricing-value" data-label="90 Min">₹3,500</div>
                         </div>
-    
                         <div class="pricing-table-row">
                             <div class="pricing-service-name">Scrub Massage</div>
                             <div class="pricing-value" data-label="45 Min">₹1,500</div>
                             <div class="pricing-value" data-label="60 Min">₹3,000</div>
                             <div class="pricing-value" data-label="90 Min">₹3,500</div>
                         </div>
-    
                         <div class="pricing-table-row">
                             <div class="pricing-service-name">Butterfly Massage</div>
-                            <div class="pricing-value" data-label="45 Min">-</div>
+                            <div class="pricing-value" data-label="45 Min">—</div>
                             <div class="pricing-value" data-label="60 Min">₹3,000</div>
                             <div class="pricing-value" data-label="90 Min">₹3,500</div>
                         </div>
-    
                         <div class="pricing-table-row">
                             <div class="pricing-service-name">Sandwich Massage</div>
-                            <div class="pricing-value" data-label="45 Min">-</div>
+                            <div class="pricing-value" data-label="45 Min">—</div>
                             <div class="pricing-value" data-label="60 Min">₹3,000</div>
                             <div class="pricing-value" data-label="90 Min">₹3,500</div>
                         </div>
-    
                         <div class="pricing-table-row">
                             <div class="pricing-service-name">Deep Tissue Massage</div>
                             <div class="pricing-value" data-label="45 Min">₹1,500</div>
                             <div class="pricing-value" data-label="60 Min">₹3,000</div>
                             <div class="pricing-value" data-label="90 Min">₹3,500</div>
                         </div>
-    
                         <div class="pricing-table-row">
                             <div class="pricing-service-name">Steam Bath</div>
-                            <div class="pricing-value" data-label="45 Min">-</div>
-                            <div class="pricing-value" data-label="60 Min">-</div>
+                            <div class="pricing-value" data-label="45 Min">—</div>
+                            <div class="pricing-value" data-label="60 Min">—</div>
                             <div class="pricing-value" data-label="90 Min">₹4,500</div>
                         </div>
-    
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Courses Banner Section -->
+        <!-- Courses Section -->
         <section class="courses-section">
             <div class="courses-container">
                 <h2>Our Professional Diploma Courses</h2>
-        
                 <div class="courses-grid">
-        
                     <div class="course-card">
                         <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800" alt="">
                         <div class="course-content">
@@ -3058,15 +1985,13 @@
                             <a href="#">Read More</a>
                         </div>
                     </div>
-        
                     <div class="course-card">
-                        <img src="https://plus.unsplash.com/premium_photo-1726837305724-07c7f7f84a4d?q=80&w=703&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <img src="https://plus.unsplash.com/premium_photo-1726837305724-07c7f7f84a4d?q=80&w=703&auto=format&fit=crop" alt="">
                         <div class="course-content">
                             <h3>Diploma in Professional Makeup</h3>
                             <a href="#">Read More</a>
                         </div>
                     </div>
-        
                     <div class="course-card">
                         <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=800" alt="">
                         <div class="course-content">
@@ -3074,7 +1999,6 @@
                             <a href="#">Read More</a>
                         </div>
                     </div>
-        
                     <div class="course-card">
                         <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="">
                         <div class="course-content">
@@ -3082,12 +2006,10 @@
                             <a href="#">Read More</a>
                         </div>
                     </div>
-        
                 </div>
                 <div class="view-all-wrapper">
                     <a href="courses.html" class="view-all-btn">View All Courses</a>
                 </div>
-                
             </div>
         </section>
 
@@ -3096,12 +2018,9 @@
             <div class="career-container">
                 <div class="career-header">
                     <div class="career-badge">We're Hiring</div>
-                    <h2>Join Our
-                        <span class="career-highlight">Wellness Family</span>
-                    </h2>
+                    <h2>Join Our <span class="career-highlight">Wellness Family</span></h2>
                     <p>Build a rewarding career in a nurturing environment where your passion for wellness meets professional growth</p>
                 </div>
-
                 <div class="career-content">
                     <div class="career-image-wrapper">
                         <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&h=1000&fit=crop" alt="Career at Star and Sky Spa">
@@ -3110,11 +2029,9 @@
                             <p>Join a team dedicated to excellence and client satisfaction</p>
                         </div>
                     </div>
-
                     <div class="career-info">
                         <h3>Why Work With Us?</h3>
                         <p>At Star and Sky Spa, we believe in nurturing talent and creating an environment where our team members thrive. We offer competitive benefits, continuous learning opportunities, and a supportive workplace culture.</p>
-
                         <ul class="career-features">
                             <li class="career-feature-item">
                                 <div class="career-feature-icon">✨</div>
@@ -3130,65 +2047,10 @@
                                     <p>Attractive salary packages with performance incentives</p>
                                 </div>
                             </li>
-                            <br>
-                            <br>
-                            <a href="#" class="courses-banner-btn">View More Courses</a>
-                            <!-- <li class="career-feature-item">
-                                                                                    <div class="career-feature-icon">🌟</div>
-                                                                                    <div class="career-feature-text">
-                                                                                        <h4>Supportive Culture</h4>
-                                                                                        <p>A positive work environment that values work-life balance</p>
-                                                                                    </div>
-                                                                                </li>
-                                                                                <li class="career-feature-item">
-                                                                                    <div class="career-feature-icon">🎯</div>
-                                                                                    <div class="career-feature-text">
-                                                                                        <h4>Career Advancement</h4>
-                                                                                        <p>Clear paths for growth within the organization</p>
-                                                                                    </div>
-                                                                                </li> -->
                         </ul>
+                        <a href="#" class="courses-banner-btn">View More Courses</a>
                     </div>
                 </div>
-
-                <!-- <div class="career-content" style="grid-template-columns: 1fr 1fr; flex-direction: row-reverse;">
-                                                <div class="career-image-wrapper">
-                                                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&h=1000&fit=crop" alt="Team Culture">
-                                                    <div class="career-image-overlay">
-                                                        <h3>Collaborative Environment</h3>
-                                                        <p>Work alongside passionate wellness professionals</p>
-                                                    </div>
-                                                </div>
-                                
-                                                <div class="career-info">
-                                                    <h3>Current Openings</h3>
-                                                    <p>We're always looking for talented individuals who share our passion for wellness and exceptional customer service. Whether you're an experienced therapist or just starting your career, we have opportunities for you.</p>
-                                                    
-                                                    <ul class="career-features">
-                                                        <li class="career-feature-item">
-                                                            <div class="career-feature-icon">🧘</div>
-                                                            <div class="career-feature-text">
-                                                                <h4>Massage Therapists</h4>
-                                                                <p>Certified professionals with experience in various massage techniques</p>
-                                                            </div>
-                                                        </li>
-                                                        <li class="career-feature-item">
-                                                            <div class="career-feature-icon">💆</div>
-                                                            <div class="career-feature-text">
-                                                                <h4>Spa Attendants</h4>
-                                                                <p>Friendly individuals dedicated to client comfort and satisfaction</p>
-                                                            </div>
-                                                        </li>
-                                                        <li class="career-feature-item">
-                                                            <div class="career-feature-icon">📋</div>
-                                                            <div class="career-feature-text">
-                                                                <h4>Front Desk Staff</h4>
-                                                                <p>Organized professionals with excellent communication skills</p>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div> -->
             </div>
         </section>
 
@@ -3196,8 +2058,7 @@
         <section class="testimonials-section">
             <div class="testimonials-wrapper">
                 <div class="testimonials-header">
-                    <h2>From our<br><span class="highlight-word">community.</span>
-                    </h2>
+                    <h2>From our<br><span class="highlight-word">community.</span></h2>
                     <p>Here's what other clients had to say about Star and Sky Spa.</p>
                     <div class="testimonials-nav">
                         <button class="testimonial-nav-btn testimonial-prev-btn">←</button>
@@ -3210,39 +2071,24 @@
                             <div class="testimonial-quote-icon">"</div>
                             <p class="testimonial-text">Star and Sky Spa has helped me achieve complete relaxation and wellness like never before. The therapists are truly professional and caring.</p>
                             <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Client">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Priya Sharma</h4>
-                                    <p>Regular Client, Vellore</p>
-                                </div>
+                                <div class="author-image"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Priya Sharma"></div>
+                                <div class="author-info"><h4>Priya Sharma</h4><p>Regular Client, Vellore</p></div>
                             </div>
                         </div>
                         <div class="testimonial-card">
                             <div class="testimonial-quote-icon">"</div>
                             <p class="testimonial-text">The ambiance and service quality at Star and Sky Spa is exceptional. Every visit leaves me refreshed and rejuvenated. Highly recommended!</p>
                             <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Client">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Rajesh Kumar</h4>
-                                    <p>Business Professional, Katpadi</p>
-                                </div>
+                                <div class="author-image"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Rajesh Kumar"></div>
+                                <div class="author-info"><h4>Rajesh Kumar</h4><p>Business Professional, Katpadi</p></div>
                             </div>
                         </div>
                         <div class="testimonial-card">
                             <div class="testimonial-quote-icon">"</div>
                             <p class="testimonial-text">I've been visiting for over a year now. The skilled therapists and peaceful environment make it my favorite wellness destination in Vellore.</p>
                             <div class="testimonial-author">
-                                <div class="author-image">
-                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Client">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Anita Menon</h4>
-                                    <p>Wellness Enthusiast, Vellore</p>
-                                </div>
+                                <div class="author-image"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Anita Menon"></div>
+                                <div class="author-info"><h4>Anita Menon</h4><p>Wellness Enthusiast, Vellore</p></div>
                             </div>
                         </div>
                     </div>
@@ -3253,64 +2099,32 @@
         <!-- Gallery Section -->
         <section class="gallery-section">
             <div class="gallery-header">
-                <h2>Luxury
-                    <span class="gallery-highlight">Spa Ambience</span>
-                    Near You</h2>
+                <h2>Luxury <span class="gallery-highlight">Spa Ambience</span> Near You</h2>
                 <p>Step into a calming atmosphere designed for relaxation and stress relief. Our spa in Vellore features private rooms, calming lights, and aromatic therapy zones.</p>
             </div>
             <div class="gallery-slider-container">
                 <div class="gallery-slides-wrapper">
                     <div class="gallery-slides">
                         <div class="gallery-slide-group">
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=400&fit=crop" alt="Spa Room 1">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=400&fit=crop" alt="Spa Room 2">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=400&fit=crop" alt="Spa Room 3">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop" alt="Spa Room 4">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=400&fit=crop" alt="Spa Room 5">
-                            </div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=400&fit=crop" alt="Spa Room 1"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=400&fit=crop" alt="Spa Room 2"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=400&fit=crop" alt="Spa Room 3"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop" alt="Spa Room 4"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=400&fit=crop" alt="Spa Room 5"></div>
                         </div>
                         <div class="gallery-slide-group">
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=400&fit=crop" alt="Spa Room 6">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop" alt="Spa Room 7">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=400&fit=crop" alt="Spa Room 8">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=400&fit=crop" alt="Spa Room 9">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=400&fit=crop" alt="Spa Room 10">
-                            </div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=400&fit=crop" alt="Spa Room 6"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop" alt="Spa Room 7"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=400&fit=crop" alt="Spa Room 8"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=400&fit=crop" alt="Spa Room 9"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=400&fit=crop" alt="Spa Room 10"></div>
                         </div>
                         <div class="gallery-slide-group">
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=400&fit=crop" alt="Spa Room 11">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop" alt="Spa Room 12">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=400&fit=crop" alt="Spa Room 13">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=400&fit=crop" alt="Spa Room 14">
-                            </div>
-                            <div class="gallery-image-item">
-                                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop" alt="Spa Room 15">
-                            </div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&h=400&fit=crop" alt="Spa Room 11"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop" alt="Spa Room 12"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=400&h=400&fit=crop" alt="Spa Room 13"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&h=400&fit=crop" alt="Spa Room 14"></div>
+                            <div class="gallery-image-item"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop" alt="Spa Room 15"></div>
                         </div>
                     </div>
                     <div class="gallery-nav-controls">
@@ -3322,7 +2136,7 @@
         </section>
 
         <!-- Location Section -->
-        <section class="location-section">
+        <section id="contact" class="location-section">
             <div class="location-container">
                 <div class="location-info">
                     <div class="location-badge">
@@ -3334,14 +2148,13 @@
                     <a href="https://maps.app.goo.gl/SiTJALkrHcutBEBv9" target="_blank" class="location-view-btn">View Map</a>
                 </div>
                 <div class="location-map">
-                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62418.84935662076!2d79.09707477910157!3d12.905377800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad479b85e7a5b9%3A0x6e3b5b5b5b5b5b5b!2sKatpadi%2C%20Vellore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe> -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.4639003003435!2d79.13858599999999!3d12.9421403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad39748036873b%3A0xa221c6c50e033e0d!2sStar%20%26%20Sky%20Beauty%20Spa!5e0!3m2!1sen!2sin!4v1771437286809!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
 
         <!-- Booking Form Section -->
-        <section class="booking-form-section">
+        <section id="booking" class="booking-form-section">
             <div class="booking-form-container">
                 <div class="booking-form-heading">
                     <div class="booking-form-badge">Contact</div>
@@ -3349,7 +2162,7 @@
                 </div>
                 <div class="booking-form-content">
                     <div class="booking-form-image">
-                        <img src="https://plus.unsplash.com/premium_photo-1661682860527-2c9dfb40a793?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c3BhJTIwbWFzc2FnZXxlbnwwfHwwfHx8MA%3D%3D" alt="Spa Ambience">
+                        <img src="https://plus.unsplash.com/premium_photo-1661682860527-2c9dfb40a793?w=500&auto=format&fit=crop&q=60" alt="Spa Ambience">
                     </div>
                     <div class="booking-form-fields-wrapper">
                         <form id="bookingForm">
@@ -3363,7 +2176,6 @@
                                     <input type="email" class="booking-form-input" placeholder="Enter your email" required>
                                 </div>
                             </div>
-
                             <div class="booking-form-row">
                                 <div class="booking-form-group">
                                     <label class="booking-form-label">Mobile Number</label>
@@ -3374,7 +2186,6 @@
                                     <input type="date" class="booking-form-input" required>
                                 </div>
                             </div>
-
                             <div class="booking-form-row">
                                 <div class="booking-form-group">
                                     <label class="booking-form-label">Time</label>
@@ -3396,24 +2207,22 @@
                                     <label class="booking-form-label">Services</label>
                                     <select class="booking-form-select" required>
                                         <option value="" disabled selected>Select service</option>
-                                        <option value="swedish-massage">Swedish Massage</option>
+                                        <option value="dry-massage">Dry Massage</option>
+                                        <option value="oil-massage">Oil Massage</option>
+                                        <option value="gel-massage">Gel Massage</option>
+                                        <option value="cream-massage">Cream Massage</option>
+                                        <option value="scrub-massage">Scrub Massage</option>
+                                        <option value="butterfly-massage">Butterfly Massage</option>
+                                        <option value="sandwich-massage">Sandwich Massage</option>
                                         <option value="deep-tissue">Deep Tissue Massage</option>
-                                        <option value="hot-stone">Hot Stone Massage</option>
-                                        <option value="aromatherapy">Aromatherapy Massage</option>
-                                        <option value="thai-massage">Thai Massage</option>
-                                        <option value="reflexology">Reflexology</option>
-                                        <option value="couples-massage">Couples Massage</option>
-                                        <option value="body-scrub">Body Scrub & Polish</option>
-                                        <option value="facial">Facial Treatment</option>
+                                        <option value="steam-bath">Steam Bath</option>
                                     </select>
                                 </div>
                             </div>
-
                             <div class="booking-form-group">
                                 <label class="booking-form-label">Message</label>
                                 <textarea class="booking-form-textarea" placeholder="Any special requests or additional information" rows="3"></textarea>
                             </div>
-
                             <button type="submit" class="booking-form-submit">Submit your form</button>
                         </form>
                     </div>
@@ -3426,27 +2235,19 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <div class="footer-logo">
-                        <svg viewbox="0 0 24 24">
-                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
-                        </svg>
+                        <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/></svg>
                         Star and Sky
                     </div>
                     <p>Experience tranquility and rejuvenation at our premier wellness sanctuary.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook">
-                            <svg width="20" height="20" fill="currentColor" viewbox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
                         <a href="#" aria-label="Instagram">
-                            <svg width="20" height="20" fill="currentColor" viewbox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
-                        <a href="#" aria-label="Twitter">
-                            <svg width="20" height="20" fill="currentColor" viewbox="0 0 24 24">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
+                        <a href="#" aria-label="Twitter/X">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -3457,9 +2258,9 @@
                 </div>
                 <div class="footer-column">
                     <h3>Work Hours</h3>
-                    <p>Monday to Friday: 9AM - 6PM</p>
-                    <p>Saturday: 9AM - 6PM</p>
-                    <p>Sunday: 9AM - 5PM</p>
+                    <p>Monday to Friday: 9AM – 6PM</p>
+                    <p>Saturday: 9AM – 6PM</p>
+                    <p>Sunday: 9AM – 5PM</p>
                 </div>
                 <div class="footer-column">
                     <h3>Contacts</h3>
@@ -3474,7 +2275,6 @@
                         <a href="#home">Home</a>
                         <a href="#about">About Us</a>
                         <a href="#services">Services</a>
-                        <a href="#blog">Blog</a>
                         <a href="#contact">Contacts</a>
                     </div>
                     <p>© 2026 – All Rights Reserved</p>
@@ -3485,100 +2285,73 @@
         <script>
             gsap.registerPlugin(ScrollTrigger);
 
-            // Hamburger Menu Toggle
-            const hamburger = document.querySelector('.hamburger');
-            const mobileMenu = document.querySelector('.mobile-menu');
+            // ===================== HAMBURGER MENU =====================
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
             const body = document.body;
 
+            function openMenu() {
+                hamburger.classList.add('active');
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+
             hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-            });
-
-            // Close mobile menu when clicking on a link
-            document.querySelectorAll('.mobile-nav-links a, .mobile-contact-btn').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                    body.style.overflow = '';
-                });
-            });
-
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({behavior: 'smooth', block: 'start'});
-                    }
-                });
-            });
-
-            // Navbar scroll effect
-            const nav = document.querySelector('nav');
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
-                if (currentScroll > 100) {
-                    nav.style.background = 'rgba(245, 230, 211, 0.8)';
-                    nav.style.boxShadow = '0 12px 40px rgba(107, 86, 68, 0.2)';
+                if (mobileMenu.classList.contains('active')) {
+                    closeMenu();
                 } else {
-                    nav.style.background = 'rgba(245, 230, 211, 0.4)';
-                    nav.style.boxShadow = '0 8px 32px rgba(107, 86, 68, 0.1)';
+                    openMenu();
                 }
             });
 
-            // Hero animations
-            gsap.from('.hero-content h1', {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                delay: 0.5
+            // Close when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMenu);
             });
 
-            gsap.from('.hero-content p', {
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                delay: 0.8
+            // Close when clicking outside the nav
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) closeMenu();
             });
 
-            gsap.from('.hero-content .book-btn', {
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                delay: 1.1
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMenu();
             });
 
-            // About section animations
-            gsap.from('.about-image', {
-                scrollTrigger: {
-                    trigger: '.about-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                x: -100,
-                duration: 1
+            // ===================== NAVBAR SCROLL =====================
+            const nav = document.getElementById('mainNav');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 60) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
             });
 
-            gsap.from('.about-content', {
-                scrollTrigger: {
-                    trigger: '.about-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                x: 100,
-                duration: 1
+            // ===================== SMOOTH SCROLL =====================
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
             });
 
-            // Counter animation
+            // ===================== COUNTER ANIMATION =====================
             function animateCounter(element) {
                 const target = parseInt(element.getAttribute('data-target'));
                 const duration = 2000;
                 const increment = target / (duration / 16);
                 let current = 0;
-
                 const updateCounter = () => {
                     current += increment;
                     if (current < target) {
@@ -3588,441 +2361,172 @@
                         element.textContent = target + '+';
                     }
                 };
-
                 updateCounter();
             }
 
-            // Trigger counter animation when stats section is in view
             ScrollTrigger.create({
                 trigger: '.stats-section',
                 start: 'top 80%',
                 once: true,
                 onEnter: () => {
-                    document.querySelectorAll('.counter').forEach(counter => {
-                        animateCounter(counter);
-                    });
+                    document.querySelectorAll('.counter').forEach(counter => animateCounter(counter));
                 }
             });
 
-            // Stats items stagger animation
+            // ===================== GSAP ANIMATIONS =====================
+            gsap.from('.hero-content h1', { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+            gsap.from('.hero-content p', { opacity: 0, y: 30, duration: 1, delay: 0.8 });
+
+            gsap.from('.about-image', {
+                scrollTrigger: { trigger: '.about-section', start: 'top 80%' },
+                opacity: 0, x: -80, duration: 1
+            });
+            gsap.from('.about-content', {
+                scrollTrigger: { trigger: '.about-section', start: 'top 80%' },
+                opacity: 0, x: 80, duration: 1
+            });
+
             gsap.from('.stat-item', {
-                scrollTrigger: {
-                    trigger: '.stats-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                y: 50,
-                stagger: 0.2,
-                duration: 0.8
+                scrollTrigger: { trigger: '.stats-section', start: 'top 80%' },
+                opacity: 0, y: 50, stagger: 0.2, duration: 0.8
             });
 
-            // Booking section animations
-            gsap.from('.booking-content', {
-                scrollTrigger: {
-                    trigger: '.booking-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                x: -100,
-                duration: 1
-            });
-
-            gsap.from('.booking-form', {
-                scrollTrigger: {
-                    trigger: '.booking-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                x: 100,
-                duration: 1
-            });
-
-            // Footer animations
-            gsap.from('.footer-column', {
-                scrollTrigger: {
-                    trigger: '.footer',
-                    start: 'top 90%'
-                },
-                opacity: 0,
-                y: 50,
-                stagger: 0.2,
-                duration: 0.8
-            });
-
-            // Form submission
-            document.querySelector('.booking-form form').addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you for your booking! We will contact you shortly.');
-            });
-        </script>
-
-        <script>
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Testimonials Slider
-            let testimonialCurrentIndex = 0;
-            const testimonialSlider = document.querySelector('.testimonials-slider');
-            const testimonialCards = document.querySelectorAll('.testimonial-card');
-            const testimonialPrevBtn = document.querySelector('.testimonial-prev-btn');
-            const testimonialNextBtn = document.querySelector('.testimonial-next-btn');
-            const testimonialTotalSlides = testimonialCards.length;
-
-            function updateTestimonialSlider() {
-                const offset = - testimonialCurrentIndex * 100;
-                testimonialSlider.style.transform = `translateX(${offset}%)`;
-            }
-
-            testimonialPrevBtn.addEventListener('click', () => {
-                testimonialCurrentIndex = (testimonialCurrentIndex - 1 + testimonialTotalSlides) % testimonialTotalSlides;
-                updateTestimonialSlider();
-            });
-
-            testimonialNextBtn.addEventListener('click', () => {
-                testimonialCurrentIndex = (testimonialCurrentIndex + 1) % testimonialTotalSlides;
-                updateTestimonialSlider();
-            });
-
-            // Gallery Slider with Infinite Loop
-            let galleryCurrentIndex = 0;
-            const gallerySlides = document.querySelector('.gallery-slides');
-            const gallerySlideGroups = document.querySelectorAll('.gallery-slide-group');
-            const galleryPrevBtn = document.querySelector('.gallery-prev-btn');
-            const galleryNextBtn = document.querySelector('.gallery-next-btn');
-            const galleryTotalSlides = gallerySlideGroups.length;
-            let isGalleryAnimating = false;
-
-            // Clone first and last slides for infinite effect
-            const firstClone = gallerySlideGroups[0].cloneNode(true);
-            const lastClone = gallerySlideGroups[galleryTotalSlides - 1].cloneNode(true);
-
-            gallerySlides.appendChild(firstClone);
-            gallerySlides.insertBefore(lastClone, gallerySlideGroups[0]);
-
-            // Start at the first real slide (after last clone)
-            galleryCurrentIndex = 1;
-            gallerySlides.style.transform = `translateX(-${
-                galleryCurrentIndex * 100
-            }%)`;
-
-            function updateGallerySlider(smooth = true) {
-                if (smooth) {
-                    gallerySlides.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                } else {
-                    gallerySlides.style.transition = 'none';
-                }
-                const offset = - galleryCurrentIndex * 100;
-                gallerySlides.style.transform = `translateX(${offset}%)`;
-            }
-
-            function handleGalleryInfiniteLoop() {
-                if (galleryCurrentIndex === 0) { // At last clone, jump to last real slide
-                    setTimeout(() => {
-                        galleryCurrentIndex = galleryTotalSlides;
-                        updateGallerySlider(false);
-                        isGalleryAnimating = false;
-                    }, 600);
-                } else if (galleryCurrentIndex === galleryTotalSlides + 1) { // At first clone, jump to first real slide
-                    setTimeout(() => {
-                        galleryCurrentIndex = 1;
-                        updateGallerySlider(false);
-                        isGalleryAnimating = false;
-                    }, 600);
-                } else {
-                    setTimeout(() => {
-                        isGalleryAnimating = false;
-                    }, 600);
-                }
-            }
-
-            galleryPrevBtn.addEventListener('click', () => {
-                if (isGalleryAnimating) 
-                    return;
-                
-
-
-                isGalleryAnimating = true;
-                galleryCurrentIndex--;
-                updateGallerySlider();
-                handleGalleryInfiniteLoop();
-            });
-
-            galleryNextBtn.addEventListener('click', () => {
-                if (isGalleryAnimating) 
-                    return;
-                
-
-
-                isGalleryAnimating = true;
-                galleryCurrentIndex++;
-                updateGallerySlider();
-                handleGalleryInfiniteLoop();
-            });
-
-            // Auto slide gallery every 5 seconds
-            setInterval(() => {
-                if (isGalleryAnimating) 
-                    return;
-                
-
-
-                isGalleryAnimating = true;
-                galleryCurrentIndex++;
-                updateGallerySlider();
-                handleGalleryInfiniteLoop();
-            }, 5000);
-
-            // Testimonials Section Animations
             gsap.from('.testimonials-header h2', {
-                scrollTrigger: {
-                    trigger: '.testimonials-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                y: 50,
-                duration: 1
-            });
-
-            gsap.from('.testimonials-header p', {
-                scrollTrigger: {
-                    trigger: '.testimonials-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                delay: 0.2
-            });
-
-            gsap.from('.testimonials-nav', {
-                scrollTrigger: {
-                    trigger: '.testimonials-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                delay: 0.4
+                scrollTrigger: { trigger: '.testimonials-section', start: 'top 80%' },
+                opacity: 0, y: 50, duration: 1
             });
 
             gsap.from('.testimonials-content', {
-                scrollTrigger: {
-                    trigger: '.testimonials-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                x: 100,
-                duration: 1,
-                delay: 0.3
+                scrollTrigger: { trigger: '.testimonials-section', start: 'top 80%' },
+                opacity: 0, x: 100, duration: 1, delay: 0.3
             });
 
-            // Gallery Section Animations
             gsap.from('.gallery-header', {
-                scrollTrigger: {
-                    trigger: '.gallery-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                y: 50,
-                duration: 1
+                scrollTrigger: { trigger: '.gallery-section', start: 'top 80%' },
+                opacity: 0, y: 50, duration: 1
             });
 
-            gsap.from('.gallery-slides-wrapper', {
-                scrollTrigger: {
-                    trigger: '.gallery-section',
-                    start: 'top 70%'
-                },
-                opacity: 0,
-                y: 80,
-                duration: 1,
-                delay: 0.3
-            });
-
-            gsap.from('.gallery-nav-controls', {
-                scrollTrigger: {
-                    trigger: '.gallery-section',
-                    start: 'top 70%'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                delay: 0.6
-            });
-
-            // Location Section Animations
             gsap.from('.location-info', {
-                scrollTrigger: {
-                    trigger: '.location-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                x: -100,
-                duration: 1
+                scrollTrigger: { trigger: '.location-section', start: 'top 80%' },
+                opacity: 0, x: -80, duration: 1
             });
 
             gsap.from('.location-map', {
-                scrollTrigger: {
-                    trigger: '.location-section',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                x: 100,
-                duration: 1,
-                delay: 0.3
-            });
-        </script>
-
-        <script>
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Badge Animation - fade in from top
-            gsap.from('.booking-form-badge', {
-                scrollTrigger: {
-                    trigger: '.booking-form-section',
-                    start: 'top 70%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                y: -20,
-                duration: 0.8,
-                ease: 'power2.out'
+                scrollTrigger: { trigger: '.location-section', start: 'top 80%' },
+                opacity: 0, x: 80, duration: 1, delay: 0.3
             });
 
-            // Heading Animation - smooth slide up from bottom
             gsap.from('.booking-form-heading h2', {
-                scrollTrigger: {
-                    trigger: '.booking-form-section',
-                    start: 'top 70%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                y: 60,
-                duration: 1.2,
-                delay: 0.2,
-                ease: 'power3.out'
+                scrollTrigger: { trigger: '.booking-form-section', start: 'top 70%' },
+                opacity: 0, y: 50, duration: 1
             });
 
-            // Image Animation - slide from left with fade
             gsap.from('.booking-form-image', {
-                scrollTrigger: {
-                    trigger: '.booking-form-content',
-                    start: 'top 75%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                x: -80,
-                duration: 1,
-                delay: 0.4,
-                ease: 'power3.out'
+                scrollTrigger: { trigger: '.booking-form-content', start: 'top 75%' },
+                opacity: 0, x: -60, duration: 1
             });
 
-            // Form Fields Wrapper - slide from right with fade
             gsap.from('.booking-form-fields-wrapper', {
-                scrollTrigger: {
-                    trigger: '.booking-form-content',
-                    start: 'top 75%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                x: 80,
-                duration: 1,
-                delay: 0.6,
-                ease: 'power3.out'
+                scrollTrigger: { trigger: '.booking-form-content', start: 'top 75%' },
+                opacity: 0, x: 60, duration: 1
             });
 
-            // Individual Form Groups - stagger animation from bottom
-            gsap.from('.booking-form-group', {
-                scrollTrigger: {
-                    trigger: '.booking-form-fields-wrapper',
-                    start: 'top 70%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 0.8,
-                stagger: 0.08,
-                delay: 0.8,
-                ease: 'power2.out'
+            gsap.from('.footer-column', {
+                scrollTrigger: { trigger: '.footer', start: 'top 90%' },
+                opacity: 0, y: 50, stagger: 0.2, duration: 0.8
             });
 
-            // Submit Button - fade in with slight scale
-            gsap.from('.booking-form-submit', {
-                scrollTrigger: {
-                    trigger: '.booking-form-fields-wrapper',
-                    start: 'top 70%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                y: 20,
-                scale: 0.95,
-                duration: 0.8,
-                delay: 1.2,
-                ease: 'back.out(1.2)'
+            // ===================== TESTIMONIALS SLIDER =====================
+            let testimonialCurrentIndex = 0;
+            const testimonialSlider = document.querySelector('.testimonials-slider');
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            const totalTestimonials = testimonialCards.length;
+
+            document.querySelector('.testimonial-prev-btn').addEventListener('click', () => {
+                testimonialCurrentIndex = (testimonialCurrentIndex - 1 + totalTestimonials) % totalTestimonials;
+                testimonialSlider.style.transform = `translateX(-${testimonialCurrentIndex * 100}%)`;
             });
 
-            // Input Focus Animations
-            const formInputs = document.querySelectorAll('.booking-form-input, .booking-form-textarea, .booking-form-select');
-
-            formInputs.forEach(input => {
-                input.addEventListener('focus', function () {
-                    gsap.to(this, {
-                        borderBottomColor: 'rgba(255, 255, 255, 0.9)',
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                });
-
-                input.addEventListener('blur', function () {
-                    if (!this.value) {
-                        gsap.to(this, {
-                            borderBottomColor: 'rgba(255, 255, 255, 0.3)',
-                            duration: 0.3,
-                            ease: 'power2.out'
-                        });
-                    }
-                });
+            document.querySelector('.testimonial-next-btn').addEventListener('click', () => {
+                testimonialCurrentIndex = (testimonialCurrentIndex + 1) % totalTestimonials;
+                testimonialSlider.style.transform = `translateX(-${testimonialCurrentIndex * 100}%)`;
             });
 
-            // Form Submission
-            document.getElementById('bookingForm').addEventListener('submit', (e) => {
-                e.preventDefault();
+            // ===================== GALLERY SLIDER =====================
+            let galleryCurrentIndex = 0;
+            const gallerySlides = document.querySelector('.gallery-slides');
+            const gallerySlideGroups = document.querySelectorAll('.gallery-slide-group');
+            const galleryTotal = gallerySlideGroups.length;
+            let isGalleryAnimating = false;
 
-                gsap.to('.booking-form-submit', {
-                    scale: 0.95,
-                    duration: 0.1,
-                    yoyo: true,
-                    repeat: 1,
-                    ease: 'power2.inOut',
-                    onComplete: () => {
-                        alert('Thank you for your booking! We will contact you shortly.');
-                        e.target.reset();
-                    }
-                });
-            });
-        </script>
-        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+            // Clone for infinite scroll
+            const firstClone = gallerySlideGroups[0].cloneNode(true);
+            const lastClone = gallerySlideGroups[galleryTotal - 1].cloneNode(true);
+            gallerySlides.appendChild(firstClone);
+            gallerySlides.insertBefore(lastClone, gallerySlideGroups[0]);
 
-        <script>
-            function spaImageSliderGSAP() {
-                const track = document.querySelector(".spa-services-track");
-                const cards = gsap.utils.toArray(".spa-service-card");
+            galleryCurrentIndex = 1;
+            gallerySlides.style.transition = 'none';
+            gallerySlides.style.transform = `translateX(-${galleryCurrentIndex * 100}%)`;
 
-                cards.forEach(card => {
-                    track.appendChild(card.cloneNode(true));
-                });
-
-                const cardWidth = cards[0].offsetWidth + 28;
-                const totalScrollWidth = cardWidth * cards.length;
-
-                gsap.to(track, {
-                    x: - totalScrollWidth,
-                    duration: 30,
-                    ease: "none",
-                    repeat: -1
-                });
+            function updateGallery(smooth = true) {
+                gallerySlides.style.transition = smooth ? 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+                gallerySlides.style.transform = `translateX(-${galleryCurrentIndex * 100}%)`;
             }
 
-            window.addEventListener("load", spaImageSliderGSAP);
-        </script>
+            function handleInfiniteLoop() {
+                if (galleryCurrentIndex === 0) {
+                    setTimeout(() => { galleryCurrentIndex = galleryTotal; updateGallery(false); isGalleryAnimating = false; }, 620);
+                } else if (galleryCurrentIndex === galleryTotal + 1) {
+                    setTimeout(() => { galleryCurrentIndex = 1; updateGallery(false); isGalleryAnimating = false; }, 620);
+                } else {
+                    setTimeout(() => { isGalleryAnimating = false; }, 620);
+                }
+            }
 
+            document.querySelector('.gallery-prev-btn').addEventListener('click', () => {
+                if (isGalleryAnimating) return;
+                isGalleryAnimating = true;
+                galleryCurrentIndex--;
+                updateGallery();
+                handleInfiniteLoop();
+            });
+
+            document.querySelector('.gallery-next-btn').addEventListener('click', () => {
+                if (isGalleryAnimating) return;
+                isGalleryAnimating = true;
+                galleryCurrentIndex++;
+                updateGallery();
+                handleInfiniteLoop();
+            });
+
+            setInterval(() => {
+                if (isGalleryAnimating) return;
+                isGalleryAnimating = true;
+                galleryCurrentIndex++;
+                updateGallery();
+                handleInfiniteLoop();
+            }, 5000);
+
+            // ===================== SPA SERVICES SLIDER =====================
+            function spaImageSliderGSAP() {
+                const track = document.querySelector('.spa-services-track');
+                if (!track) return;
+                const cards = gsap.utils.toArray('.spa-service-card');
+                cards.forEach(card => { track.appendChild(card.cloneNode(true)); });
+                const cardWidth = cards[0].offsetWidth + 28;
+                const totalScrollWidth = cardWidth * cards.length;
+                gsap.to(track, { x: -totalScrollWidth, duration: 30, ease: 'none', repeat: -1 });
+            }
+
+            window.addEventListener('load', spaImageSliderGSAP);
+
+            // ===================== BOOKING FORM =====================
+            document.getElementById('bookingForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your booking! We will contact you shortly.');
+                e.target.reset();
+            });
+        </script>
     </body>
 </html>
